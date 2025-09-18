@@ -1,36 +1,187 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Gavin Rottet - Développeur Full-Stack
 
-## Getting Started
+Un portfolio moderne et responsive pour Gavin Rottet, développeur web full-stack spécialisé en Next.js, Prisma et Tailwind CSS.
 
-First, run the development server:
+## 🚀 Technologies Utilisées
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Frontend**: Next.js 15 (App Router), React 18, TypeScript
+- **Styling**: Tailwind CSS, shadcn/ui
+- **Base de données**: Prisma ORM avec MySQL
+- **Animations**: Framer Motion
+- **Intégrations**: Cal.com pour la prise de rendez-vous
+- **Déploiement**: Optimisé pour Vercel
+
+## 🎨 Design
+
+- **Thème**: Sombre "gamer" avec des accents verts/bleutés
+- **Responsive**: Parfaitement adapté à tous les appareils
+- **Effets visuels**: Formes géométriques abstraites, animations fluides
+- **Accessibilité**: Respect des standards d'accessibilité
+
+## 📁 Structure du Projet
+
+```
+src/
+├── app/                    # App Router Next.js
+│   ├── globals.css        # Styles globaux et thème
+│   ├── layout.tsx         # Layout principal
+│   └── page.tsx           # Page d'accueil
+├── components/            # Composants réutilisables
+│   ├── ui/               # Composants shadcn/ui
+│   ├── About.tsx         # Section À Propos
+│   ├── CalEmbed.tsx      # Intégration Cal.com
+│   ├── Contact.tsx       # Section Contact
+│   ├── CV.tsx            # Gestion du CV
+│   ├── CustomIcon.tsx    # Icônes personnalisées
+│   ├── Experience.tsx    # Expériences professionnelles
+│   ├── Footer.tsx        # Pied de page
+│   ├── Header.tsx        # Navigation
+│   ├── Hero.tsx          # Section d'accueil
+│   ├── Projects.tsx      # Projets réalisés
+│   ├── Section.tsx       # Wrapper de section
+│   └── Skills.tsx        # Compétences
+└── lib/                  # Utilitaires
+    ├── prisma.ts         # Client Prisma
+    └── utils.ts          # Utilitaires généraux
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Installation et Démarrage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Cloner le projet**
+   ```bash
+   git clone <repository-url>
+   cd portfolio
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Installer les dépendances**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Configurer l'environnement**
+   ```bash
+   cp .env.example .env
+   # Éditer .env avec vos configurations
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Configurer la base de données**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. **Démarrer le serveur de développement**
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+6. **Ouvrir dans le navigateur**
+   ```
+   http://localhost:3000
+   ```
 
-## Deploy on Vercel
+## 📋 Fonctionnalités
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🏠 Page d'Accueil
+- Hero section avec animation
+- Navigation fluide entre sections
+- Effets visuels et animations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 👤 À Propos
+- Informations personnelles complètes
+- Coordonnées de contact
+- Intérêts et langues
+
+### 🛠️ Compétences
+- Compétences techniques organisées par catégories
+- Soft skills
+- Visualisation du niveau d'expertise
+
+### 💼 Expériences Professionnelles
+- Stage principal au Centre de Réadaptation de Mulhouse
+- Ancien stage chez Abraxas (Suisse)
+- Storytelling axé sur les résultats et bénéfices
+
+### 🚀 Projets Réalisés
+- Application de gestion des interventions médicales
+- Projets de formation et de groupe
+- Galerie d'images et descriptions détaillées
+
+### 📄 Gestion du CV
+- Upload de CV personnalisé
+- Prévisualisation PDF
+- Téléchargement et impression
+
+### 📞 Contact
+- Intégration Cal.com pour prise de rendez-vous
+- Formulaire de contact
+- Informations de contact directes
+
+## 🎯 Configuration Cal.com
+
+Le portfolio intègre Cal.com avec la configuration suivante :
+- **Username**: gavin-rottet
+- **Brand Color**: #10B981 (vert)
+- **Theme**: dark
+- **Layout**: month_view
+
+## 🗄️ Base de Données
+
+### Modèles Prisma
+
+- **Project**: Gestion des projets (titre, description, technologies, liens)
+- **Experience**: Expériences professionnelles (entreprise, période, réalisations)
+- **CV**: Gestion des fichiers CV (nom, chemin, statut actif)
+
+## 🚀 Déploiement
+
+### Vercel (Recommandé)
+
+1. Connecter le repository GitHub à Vercel
+2. Configurer les variables d'environnement
+3. Déployer automatiquement
+
+### Variables d'environnement requises
+
+```env
+DATABASE_URL="mysql://username:password@host:port/database"
+CALCOM_USERNAME="gavin-rottet"
+NEXTAUTH_SECRET="your-secret-key"
+NEXTAUTH_URL="https://your-domain.com"
+```
+
+## 📱 Responsive Design
+
+Le portfolio est entièrement responsive avec :
+- **Mobile**: Navigation optimisée, cartes empilées
+- **Tablet**: Layout adaptatif, grilles 2 colonnes
+- **Desktop**: Layout complet, grilles 3 colonnes
+
+## 🎨 Personnalisation
+
+### Couleurs du thème
+- **Primary**: Vert (#10B981)
+- **Accent**: Bleu (#3B82F6)
+- **Background**: Sombre avec dégradés
+- **Text**: Blanc/Gris clair
+
+### Animations
+- Transitions fluides entre sections
+- Effets de survol sur les éléments interactifs
+- Animations d'apparition au scroll
+
+## 📞 Support
+
+Pour toute question ou support :
+- **Email**: gavinrottet2005@gmail.com
+- **Téléphone**: 0768267956
+- **LinkedIn**: [linkedin.com/in/gavin-rottet](https://linkedin.com/in/gavin-rottet)
+- **GitHub**: [github.com/gavinrottet](https://github.com/gavinrottet)
+
+## 📄 Licence
+
+© 2025 Gavin Rottet. Tous droits réservés.
+
+---
+
+*Réalisé avec ❤️ par Gavin Rottet*
