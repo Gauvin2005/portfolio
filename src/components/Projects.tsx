@@ -151,7 +151,7 @@ export const Projects: React.FC = () => {
           transition={{ duration: 0.3 }}
           className="space-y-8"
         >
-          {mainProjects.map((project, index) => (
+          {mainProjects.map((project) => (
             <motion.div key={project.id} variants={itemVariants}>
               <Card className={`glass-effect ${project.featured ? 'neon-glow' : ''}`}>
                 <CardContent className="p-8">
@@ -298,7 +298,7 @@ export const Projects: React.FC = () => {
                 <div className="text-center space-y-6">
                   <h3 className="text-2xl font-bold text-primary">Projets de Groupe & Supervision</h3>
                   <p className="text-muted-foreground">
-                    Projets collaboratifs et expérience de supervision d'étudiants, démontrant mes compétences en leadership et en travail d'équipe.
+                    Projets collaboratifs et expérience de supervision d&apos;étudiants, démontrant mes compétences en leadership et en travail d&apos;équipe.
                   </p>
                   
                   <Button

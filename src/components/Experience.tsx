@@ -138,7 +138,7 @@ export const Experience: React.FC = () => {
         viewport={{ once: true }}
         className="space-y-8"
       >
-        {experiences.map((exp, index) => (
+        {experiences.map((exp) => (
           <motion.div key={exp.id} variants={itemVariants}>
             <Card className={`glass-effect ${exp.featured ? 'neon-glow' : ''}`}>
               <CardContent className="p-8">

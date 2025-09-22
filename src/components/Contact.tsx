@@ -36,8 +36,8 @@ export const Contact: React.FC = () => {
       
       toast.success('Message envoyé avec succès! Je vous répondrai dans les plus brefs délais.')
       setFormData({ name: '', email: '', message: '' })
-    } catch (error) {
-      toast.error('Erreur lors de l\'envoi du message. Veuillez réessayer.')
+    } catch {
+      toast.error('Erreur lors de l&apos;envoi du message. Veuillez réessayer.')
     } finally {
       setIsSubmitting(false)
     }
@@ -247,8 +247,8 @@ export const Contact: React.FC = () => {
                 Prêt à Transformer Vos Idées ?
               </h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Que vous ayez besoin d'une application web complète, d'une refonte de votre site existant, 
-                ou d'un conseil technique, je suis là pour vous accompagner dans votre projet numérique.
+                Que vous ayez besoin d&apos;une application web complète, d&apos;une refonte de votre site existant, 
+                ou d&apos;un conseil technique, je suis là pour vous accompagner dans votre projet numérique.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="neon-glow">

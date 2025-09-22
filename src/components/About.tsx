@@ -54,7 +54,7 @@ export const About: React.FC = () => {
           variants={itemVariants}
           className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed"
         >
-          Étudiant motivé en informatique avec un vif intérêt pour la programmation et une grande capacité d'apprentissage. 
+          Étudiant motivé en informatique avec un vif intérêt pour la programmation et une grande capacité d&apos;apprentissage. 
           Je suis un développeur web full-stack passionné, recherchant activement des opportunités freelance et des stages 
           de 6 mois pour mettre à profit mes compétences.
         </motion.p>

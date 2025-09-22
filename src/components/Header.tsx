@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { GitHubIcon, LinkedInIcon, MenuIcon, XIcon } from './CustomIcon'
 import { CalModalCustom } from './CalModalCustom'
