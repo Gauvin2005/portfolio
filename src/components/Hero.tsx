@@ -69,8 +69,21 @@ export const Hero: React.FC = () => {
           >
             <h1 className="text-5xl md:text-7xl font-bold">
               <span className="block">Salut, je suis</span>
-              <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Gavin 👋
+              <span className="block">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Gavin</span>{' '}
+                <motion.span
+                  whileHover={{
+                    rotate: [0, -15, 15, -15, 15, -10, 10, 0],
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    ease: "easeInOut",
+                    times: [0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1]
+                  }}
+                  className="inline-block cursor-pointer bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+                >
+                  👋
+                </motion.span>
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
