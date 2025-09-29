@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export const Experience: React.FC = () => {
   const [expandedExperiences, setExpandedExperiences] = useState<number[]>([])
@@ -24,6 +25,8 @@ export const Experience: React.FC = () => {
       company: 'Centre de Réadaptation de Mulhouse',
       period: '17/02/2025 - 18/08/2025',
       featured: true,
+      anchor: 'experience-crm',
+      projectImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
       summary: 'Conception et développement d\'une application web moderne pour la gestion des interventions médicales d\'urgence, remplaçant un ancien système et répondant aux enjeux de traçabilité, sécurité et ergonomie.',
       description: 'Conception et développement d\'une application web moderne pour le remplacement d\'un système obsolète (2008) de suivi des interventions médicales d\'urgence (112), avec l\'objectif "Zéro Papier".',
       role: 'Développeur full-stack avec une grande autonomie, responsable de la conception et de l\'implémentation de bout en bout de la solution. Apprentissage autodidacte et rapide des technologies clés.',
@@ -68,6 +71,8 @@ export const Experience: React.FC = () => {
       company: 'Abraxas - Münchenstein (Suisse)',
       period: '02/2024 - 08/2024',
       featured: false,
+      anchor: 'experience-abraxas',
+      projectImage: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop',
       summary: 'Participation à un projet d\'équipe et acquisition de compétences variées en programmation orientée objet, méthode Agile et automatisation de tâches.',
       description: 'Participation à un projet d\'équipe dans un environnement professionnel suisse.',
       role: 'Stagiaire développeur participant aux projets de l\'équipe.',
@@ -140,36 +145,52 @@ export const Experience: React.FC = () => {
       >
         {experiences.map((exp) => (
           <motion.div key={exp.id} variants={itemVariants}>
-            <Card className={`glass-effect ${exp.featured ? 'neon-glow' : ''}`}>
+            <Card id={exp.anchor} className={`glass-effect ${exp.featured ? 'neon-glow' : ''} scroll-mt-20`}>
               <CardContent className="p-8">
-                {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                  <div>
-                    <div className="flex items-center space-x-3 mb-2">
-                      <h3 className="text-2xl font-bold text-primary">{exp.title}</h3>
-                      {exp.featured && (
-                        <Badge className="bg-primary/30 text-primary border border-primary/50">
-                          Expérience Principale
-                        </Badge>
-                      )}
+                <div className="grid lg:grid-cols-2 gap-8">
+                  {/* Project Info */}
+                  <div className="space-y-6">
+                    {/* Header */}
+                    <div>
+                      <div className="flex items-center space-x-3 mb-2">
+                        <h3 className="text-2xl font-bold text-primary">{exp.title}</h3>
+                        {exp.featured && (
+                          <Badge className="bg-primary/30 text-primary border border-primary/50">
+                            Expérience Principale
+                          </Badge>
+                        )}
+                      </div>
+                      <p className="text-lg font-semibold text-accent">{exp.company}</p>
+                      <p className="text-muted-foreground">{exp.period}</p>
                     </div>
-                    <p className="text-lg font-semibold text-accent">{exp.company}</p>
-                    <p className="text-muted-foreground">{exp.period}</p>
-                  </div>
-                </div>
 
-                {/* Summary */}
-                <div className="space-y-4 mb-6">
-                  <p className="text-muted-foreground leading-relaxed font-medium">{exp.summary}</p>
-                  
-                  {/* Toggle Button */}
-                  <Button
-                    onClick={() => toggleExperience(exp.id)}
-                    variant="outline"
-                    className="w-full sm:w-auto"
-                  >
-                    {expandedExperiences.includes(exp.id) ? 'Masquer les détails' : 'Voir mon projet de stage'}
-                  </Button>
+                    {/* Summary */}
+                    <div className="space-y-4">
+                      <p className="text-muted-foreground leading-relaxed font-medium">{exp.summary}</p>
+                      
+                      {/* Toggle Button */}
+                      <Button
+                        onClick={() => toggleExperience(exp.id)}
+                        variant="outline"
+                        className="w-full sm:w-auto"
+                      >
+                        {expandedExperiences.includes(exp.id) ? 'Masquer les détails' : 'Voir mon projet de stage'}
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Project Image */}
+                  <div className="space-y-4">
+                    <div className="relative">
+                      <Image
+                        src={exp.projectImage}
+                        alt={`Projet ${exp.title}`}
+                        width={400}
+                        height={300}
+                        className="rounded-lg object-cover w-full h-64"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Detailed Content */}
