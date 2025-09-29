@@ -125,7 +125,12 @@ export const Header: React.FC = () => {
             </div>
 
             {/* CTA Button */}
-            <CalModalCustom />
+            <div className="hidden sm:block">
+              <CalModalCustom 
+                triggerText="Planifier un appel"
+                triggerClassName="text-sm px-3 py-1.5"
+              />
+            </div>
           </div>
         </div>
       </div>

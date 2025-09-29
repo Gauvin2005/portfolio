@@ -59,21 +59,21 @@ export const Contact: React.FC = () => {
   }
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 sm:space-y-12">
       {/* Header */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="text-center space-y-6"
+        className="text-center space-y-4 sm:space-y-6 relative z-10"
       >
-        <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold">
+        <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl md:text-5xl font-bold">
           Contact
         </motion.h2>
         <motion.p 
           variants={itemVariants}
-          className="text-lg text-muted-foreground max-w-3xl mx-auto"
+          className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4"
         >
           Prêt à collaborer sur votre prochain projet ? Planifions un appel pour discuter de vos besoins et voir comment je peux vous aider.
         </motion.p>
@@ -84,7 +84,7 @@ export const Contact: React.FC = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid lg:grid-cols-2 gap-8"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 relative z-0"
       >
         {/* Contact Information */}
         <motion.div variants={itemVariants} className="space-y-6">
@@ -178,28 +178,30 @@ export const Contact: React.FC = () => {
         </motion.div>
 
         {/* Cal.com Integration */}
-        <motion.div variants={itemVariants}>
-          <Card className="glass-effect h-full">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold text-primary mb-6 text-center">
+        <motion.div variants={itemVariants} className="flex flex-col relative z-0">
+          <Card className="glass-effect flex-1 relative">
+            <CardContent className="p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-semibold text-primary mb-4 sm:mb-6 text-center">
                 Planifier un Appel
               </h3>
               
-              <div className="text-center space-y-4 mb-6">
-                <p className="text-muted-foreground">
+              <div className="text-center space-y-3 sm:space-y-4 mb-4 sm:mb-6">
+                <p className="text-sm sm:text-base text-muted-foreground">
                   Choisissez un créneau qui vous convient pour discuter de votre projet.
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   Les appels durent généralement 30 minutes et sont gratuits.
                 </p>
               </div>
 
               {/* Cal.com Modal */}
-              <CalModalCustom 
-                triggerText="Planifier un appel (30 min)"
-                triggerVariant="outline"
-                triggerClassName="w-full bg-primary/10 hover:bg-primary/20 border-primary/50 text-primary hover:text-primary-foreground transition-all duration-300"
-              />
+              <div className="flex justify-center">
+                <CalModalCustom 
+                  triggerText="Planifier un appel (30 min)"
+                  triggerVariant="outline"
+                  triggerClassName="w-full sm:w-auto bg-primary/10 hover:bg-primary/20 border-primary/50 text-primary hover:text-primary-foreground transition-all duration-300 text-sm sm:text-base px-4 py-2"
+                />
+              </div>
 
               {/* Alternative Contact Methods */}
               <div className="mt-6 pt-6 border-t border-border">

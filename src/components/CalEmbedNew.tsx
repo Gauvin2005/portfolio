@@ -15,8 +15,18 @@ export const CalEmbedNew: React.FC = () => {
     <Cal 
       namespace="30min"
       calLink="gavin-rottet/30min"
-      style={{width:"100%",height:"100%",minHeight:"500px",overflow:"auto"}}
-      config={{"layout":"month_view"}}
+      style={{
+        width: "100%",
+        height: "100%",
+        minHeight: "400px",
+        overflow: "auto",
+        borderRadius: "8px"
+      }}
+      config={{
+        layout: "month_view",
+        theme: "dark",
+        brandColor: "#10B981"
+      }}
     />
   )
 }
