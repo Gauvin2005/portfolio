@@ -1,48 +1,13 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { EmailIcon, PhoneIcon, CalendarIcon } from './CustomIcon'
 import { CalModalCustom } from './CalModalCustom'
 import { motion } from 'framer-motion'
-import { toast } from 'sonner'
 
 export const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      toast.success('Message envoyé avec succès! Je vous répondrai dans les plus brefs délais.')
-      setFormData({ name: '', email: '', message: '' })
-    } catch {
-      toast.error('Erreur lors de l&apos;envoi du message. Veuillez réessayer.')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -75,158 +40,126 @@ export const Contact: React.FC = () => {
           variants={itemVariants}
           className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4"
         >
-          Prêt à collaborer sur votre prochain projet ? Planifions un appel pour discuter de vos besoins et voir comment je peux vous aider.
+          Prêt à collaborer sur votre prochain projet ? Contactez-moi directement ou planifions un appel pour discuter de vos besoins.
         </motion.p>
       </motion.div>
 
+      {/* Main Contact Section - 2 Column Grid */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 relative z-0"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 relative z-0"
       >
-        {/* Contact Information */}
+        {/* Left Column - Contact Information */}
         <motion.div variants={itemVariants} className="space-y-6">
-          <Card className="glass-effect">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold text-primary mb-6">Informations de Contact</h3>
+          <Card className="glass-effect rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold text-primary mb-8">Informations de Contact</h3>
               
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <EmailIcon size={20} className="text-primary" />
-                  <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-sm text-muted-foreground">gavinrottet2005@gmail.com</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-3">
-                  <PhoneIcon size={20} className="text-primary" />
-                  <div>
-                    <p className="font-medium">Téléphone</p>
-                    <p className="text-sm text-muted-foreground">0768267956</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-3">
-                  <CalendarIcon size={20} className="text-primary" />
-                  <div>
-                    <p className="font-medium">Disponibilité</p>
-                    <p className="text-sm text-muted-foreground">Lun-Ven, 9h-18h</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Quick Contact Form */}
-          <Card className="glass-effect">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold text-primary mb-6">Message Rapide</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <Label htmlFor="name">Nom</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Votre nom"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="votre@email.com"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="message">Message</Label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Décrivez votre projet ou votre demande..."
-                    className="w-full px-3 py-2 border border-input bg-background rounded-md text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    rows={4}
-                    required
-                  />
-                </div>
-                
-                <Button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full neon-glow"
+              <div className="space-y-6">
+                <motion.div 
+                  className="flex items-center space-x-4 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
                 >
-                  {isSubmitting ? 'Envoi en cours...' : 'Envoyer le Message'}
-                </Button>
-              </form>
+                  <div className="p-3 rounded-full bg-primary/20">
+                    <EmailIcon size={24} className="text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-lg">Email</p>
+                    <p className="text-muted-foreground">gavinrottet2005@gmail.com</p>
+                  </div>
+                </motion.div>
+                
+                <motion.div 
+                  className="flex items-center space-x-4 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="p-3 rounded-full bg-primary/20">
+                    <PhoneIcon size={24} className="text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-lg">Téléphone</p>
+                    <p className="text-muted-foreground">0768267956</p>
+                  </div>
+                </motion.div>
+                
+                <motion.div 
+                  className="flex items-center space-x-4 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="p-3 rounded-full bg-primary/20">
+                    <CalendarIcon size={24} className="text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-lg">Disponibilité</p>
+                    <p className="text-muted-foreground">Lun-Ven, 9h-18h</p>
+                  </div>
+                </motion.div>
+              </div>
             </CardContent>
           </Card>
         </motion.div>
 
-        {/* Cal.com Integration */}
-        <motion.div variants={itemVariants} className="flex flex-col relative z-0">
-          <Card className="glass-effect flex-1 relative">
-            <CardContent className="p-4 sm:p-6">
-              <h3 className="text-lg sm:text-xl font-semibold text-primary mb-4 sm:mb-6 text-center">
-                Planifier un Appel
+        {/* Right Column - Action Buttons */}
+        <motion.div variants={itemVariants} className="space-y-6">
+          <Card className="glass-effect rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold text-primary mb-8 text-center">
+                Prendre Contact
               </h3>
               
-              <div className="text-center space-y-3 sm:space-y-4 mb-4 sm:mb-6">
-                <p className="text-sm sm:text-base text-muted-foreground">
-                  Choisissez un créneau qui vous convient pour discuter de votre projet.
-                </p>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  Les appels durent généralement 30 minutes et sont gratuits.
-                </p>
-              </div>
-
-              {/* Cal.com Modal */}
-              <div className="flex justify-center">
-                <CalModalCustom 
-                  triggerText="Planifier un appel (30 min)"
-                  triggerVariant="outline"
-                  triggerClassName="w-full sm:w-auto bg-primary/10 hover:bg-primary/20 border-primary/50 text-primary hover:text-primary-foreground transition-all duration-300 text-sm sm:text-base px-4 py-2"
-                />
-              </div>
-
-              {/* Alternative Contact Methods */}
-              <div className="mt-6 pt-6 border-t border-border">
-                <h4 className="text-lg font-semibold text-accent mb-4 text-center">
-                  Autres Moyens de Contact
-                </h4>
-                
-                <div className="space-y-3">
+              <div className="space-y-6">
+                {/* Primary Email Button */}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   <Button 
-                    variant="outline" 
-                    className="w-full justify-start"
+                    size="lg"
+                    className="w-full h-16 text-lg font-semibold bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 neon-glow"
                     onClick={() => window.open('mailto:gavinrottet2005@gmail.com')}
+                    aria-label="Envoyer un email direct à gavinrottet2005@gmail.com"
                   >
-                    <EmailIcon size={20} className="mr-3" />
+                    <EmailIcon size={24} className="mr-3" />
                     Envoyer un Email Direct
                   </Button>
+                </motion.div>
+
+                {/* Secondary Calendar Button */}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <CalModalCustom 
+                    triggerText="Planifier un Appel (30 min)"
+                    triggerVariant="outline"
+                    triggerClassName="w-full h-16 text-lg font-semibold border-2 border-primary/50 bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary-foreground rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    aria-label="Planifier un appel de 30 minutes"
+                  />
+                </motion.div>
+
+                {/* Additional Contact Options */}
+                <div className="pt-6 border-t border-border/50">
+                  <h4 className="text-lg font-semibold text-accent mb-4 text-center">
+                    Autres Options
+                  </h4>
                   
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-start"
-                    onClick={() => window.open('tel:0768267956')}
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <PhoneIcon size={20} className="mr-3" />
-                    Appeler Directement
-                  </Button>
+                    <Button 
+                      variant="ghost" 
+                      className="w-full justify-center py-4 text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-xl transition-all duration-300"
+                      onClick={() => window.open('tel:0768267956')}
+                      aria-label="Appeler directement au 0768267956"
+                    >
+                      <PhoneIcon size={20} className="mr-3" />
+                      Appeler Directement
+                    </Button>
+                  </motion.div>
                 </div>
               </div>
             </CardContent>
@@ -243,22 +176,40 @@ export const Contact: React.FC = () => {
         className="text-center"
       >
         <motion.div variants={itemVariants}>
-          <Card className="glass-effect">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-primary mb-4">
+          <Card className="glass-effect rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <CardContent className="p-8 lg:p-12">
+              <h3 className="text-2xl lg:text-3xl font-bold text-primary mb-6">
                 Prêt à Transformer Vos Idées ?
               </h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto text-lg">
                 Que vous ayez besoin d&apos;une application web complète, d&apos;une refonte de votre site existant, 
                 ou d&apos;un conseil technique, je suis là pour vous accompagner dans votre projet numérique.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="neon-glow">
-                  Planifier un Appel Gratuit
-                </Button>
-                <Button size="lg" variant="outline">
-                  Voir Mes Projets
-                </Button>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <CalModalCustom 
+                    triggerText="Planifier un Appel Gratuit"
+                    triggerVariant="default"
+                    triggerClassName="px-8 py-4 text-lg font-semibold neon-glow rounded-2xl"
+                    aria-label="Planifier un appel gratuit"
+                  />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    className="px-8 py-4 text-lg font-semibold rounded-2xl border-2 hover:bg-primary/10"
+                    aria-label="Voir les projets réalisés"
+                  >
+                    Voir Mes Projets
+                  </Button>
+                </motion.div>
               </div>
             </CardContent>
           </Card>
