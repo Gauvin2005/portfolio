@@ -46,14 +46,14 @@ export const Experience: React.FC = () => {
         },
         {
           category: 'Optimisations Techniques',
-          details: 'Utilisation d\'une architecture Next.js, Prisma, API RESTful, avec lazy loading, code splitting, cache intelligent (application PWA Ready).'
+          details: 'Utilisation d\'une architecture Next.js, API RESTful, avec lazy loading, code splitting, cache intelligent (application PWA Ready).'
         },
         {
           category: 'Bénéfices Concrets',
           details: 'A conduit à un gain de temps, une réduction des erreurs, une traçabilité complète, une collaboration améliorée pour les équipes soignantes et une conformité réglementaire pour l\'établissement.'
         }
       ],
-      technologies: ['Next.js', 'Prisma', 'MySQL', 'Tailwind CSS', 'JWT', 'PDF Generation', 'PWA'],
+      technologies: ['Next.js', 'MySQL', 'Tailwind CSS', 'JWT', 'PDF Generation', 'PWA'],
       benefits: [
         'Gain de temps significatif',
         'Réduction des erreurs',
@@ -126,7 +126,7 @@ export const Experience: React.FC = () => {
           variants={itemVariants}
           className="text-lg text-muted-foreground max-w-3xl mx-auto"
         >
-          Des expériences qui démontrent ma capacité à livrer des solutions concrètes avec un impact mesurable.
+          Des expériences qui démontrent ma capacité à livrer des solutions concrètes en entreprise avec un impact mesurable.
         </motion.p>
       </motion.div>
 

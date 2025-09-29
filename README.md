@@ -1,12 +1,11 @@
 # Portfolio Gavin Rottet - Développeur Full-Stack
 
-Un portfolio moderne et responsive pour Gavin Rottet, développeur web full-stack spécialisé en Next.js, Prisma et Tailwind CSS.
+Un portfolio moderne et responsive pour Gavin Rottet, développeur web full-stack spécialisé en Next.js et Tailwind CSS.
 
 ## 🚀 Technologies Utilisées
 
 - **Frontend**: Next.js 15 (App Router), React 18, TypeScript
 - **Styling**: Tailwind CSS, shadcn/ui
-- **Base de données**: Prisma ORM avec MySQL
 - **Animations**: Framer Motion
 - **Intégrations**: Cal.com pour la prise de rendez-vous
 - **Déploiement**: Optimisé pour Vercel
@@ -41,7 +40,6 @@ src/
 │   ├── Section.tsx       # Wrapper de section
 │   └── Skills.tsx        # Compétences
 └── lib/                  # Utilitaires
-    ├── prisma.ts         # Client Prisma
     └── utils.ts          # Utilitaires généraux
 ```
 
@@ -58,24 +56,12 @@ src/
    npm install
    ```
 
-3. **Configurer l'environnement**
-   ```bash
-   cp .env.example .env
-   # Éditer .env avec vos configurations
-   ```
-
-4. **Configurer la base de données**
-   ```bash
-   npx prisma generate
-   npx prisma db push
-   ```
-
-5. **Démarrer le serveur de développement**
+3. **Démarrer le serveur de développement**
    ```bash
    npm run dev
    ```
 
-6. **Ouvrir dans le navigateur**
+4. **Ouvrir dans le navigateur**
    ```
    http://localhost:3000
    ```
@@ -125,14 +111,6 @@ Le portfolio intègre Cal.com avec la configuration suivante :
 - **Theme**: dark
 - **Layout**: month_view
 
-## 🗄️ Base de Données
-
-### Modèles Prisma
-
-- **Project**: Gestion des projets (titre, description, technologies, liens)
-- **Experience**: Expériences professionnelles (entreprise, période, réalisations)
-- **CV**: Gestion des fichiers CV (nom, chemin, statut actif)
-
 ## 🚀 Déploiement
 
 ### Vercel (Recommandé)
@@ -144,10 +122,7 @@ Le portfolio intègre Cal.com avec la configuration suivante :
 ### Variables d'environnement requises
 
 ```env
-DATABASE_URL="mysql://username:password@host:port/database"
 CALCOM_USERNAME="gavin-rottet"
-NEXTAUTH_SECRET="your-secret-key"
-NEXTAUTH_URL="https://your-domain.com"
 ```
 
 ## 📱 Responsive Design

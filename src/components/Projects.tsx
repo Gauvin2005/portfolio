@@ -19,7 +19,7 @@ export const Projects: React.FC = () => {
       id: 1,
       title: 'Application de Gestion des Interventions Médicales',
       description: 'Application web moderne développée pour le Centre de Réadaptation de Mulhouse, remplaçant un système obsolète de 2008 pour le suivi des interventions médicales d\'urgence (112) avec l\'objectif "Zéro Papier".',
-      technologies: ['Next.js', 'Prisma', 'MySQL', 'Tailwind CSS', 'JWT', 'PDF Generation'],
+      technologies: ['Next.js', 'MySQL', 'Tailwind CSS', 'JWT', 'PDF Generation'],
       githubUrl: '#',
       demoUrl: '#',
       featured: true,
@@ -62,14 +62,14 @@ export const Projects: React.FC = () => {
   // Projets de formation
   const formationProjects = [
     {
-      id: 1,
+      id: 'formation-1',
       title: 'Projet HTML/CSS',
       description: 'Site web responsive développé avec HTML5 et CSS3, intégrant des animations et des effets visuels modernes.',
       technologies: ['HTML5', 'CSS3', 'JavaScript'],
       images: ['https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=300&fit=crop']
     },
     {
-      id: 2,
+      id: 'formation-2',
       title: 'Application PHP',
       description: 'Application web dynamique avec gestion de base de données MySQL et interface d\'administration.',
       technologies: ['PHP', 'MySQL', 'JavaScript'],
@@ -80,14 +80,14 @@ export const Projects: React.FC = () => {
   // Projets de groupe
   const groupeProjects = [
     {
-      id: 1,
+      id: 'groupe-1',
       title: 'Projet Flutter',
       description: 'Application mobile cross-platform développée en équipe avec Flutter et Dart.',
       technologies: ['Flutter', 'Dart', 'Firebase'],
       images: ['https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop']
     },
     {
-      id: 2,
+      id: 'groupe-2',
       title: 'Supervision Étudiant',
       description: 'Encadrement d\'un étudiant de première année dans ses projets de programmation.',
       technologies: ['Python', 'Java', 'SQL'],
@@ -254,12 +254,12 @@ export const Projects: React.FC = () => {
             </motion.div>
           ))}
 
-          {/* Projets de Formation */}
+          {/* Projets de Formation Individuels */}
           <motion.div variants={itemVariants}>
             <Card className="glass-effect">
               <CardContent className="p-8">
                 <div className="text-center space-y-6">
-                  <h3 className="text-2xl font-bold text-primary">Projets de Formation</h3>
+                  <h3 className="text-2xl font-bold text-primary">Projets de Formation Individuels</h3>
                   <p className="text-muted-foreground">
                     Collection de projets réalisés durant ma formation, couvrant différents langages et technologies pour développer une expertise polyvalente.
                   </p>
@@ -282,7 +282,7 @@ export const Projects: React.FC = () => {
                     >
                       <ProjectCarousel 
                         projects={formationProjects} 
-                        title="Mes Projets de Formation"
+                        title="Mes Projets de Formation Individuels"
                       />
                     </motion.div>
                   )}
@@ -296,7 +296,7 @@ export const Projects: React.FC = () => {
             <Card className="glass-effect">
               <CardContent className="p-8">
                 <div className="text-center space-y-6">
-                  <h3 className="text-2xl font-bold text-primary">Projets de Groupe & Supervision</h3>
+                  <h3 className="text-2xl font-bold text-primary">Projets de Formation en Groupe & Supervision</h3>
                   <p className="text-muted-foreground">
                     Projets collaboratifs et expérience de supervision d&apos;étudiants, démontrant mes compétences en leadership et en travail d&apos;équipe.
                   </p>
@@ -319,7 +319,7 @@ export const Projects: React.FC = () => {
                     >
                       <ProjectCarousel 
                         projects={groupeProjects} 
-                        title="Mes Projets de Groupe"
+                        title="Mes Projets de Groupe en Formation"
                       />
                     </motion.div>
                   )}

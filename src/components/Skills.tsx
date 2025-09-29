@@ -12,7 +12,7 @@ export const Skills: React.FC = () => {
       'Tailwind CSS', 'shadcn/ui', 'Flutter'
     ],
     backend: [
-      'Prisma', 'MySQL', 'Dotnet', 'C#', 'PHP', 
+      'MySQL', 'Dotnet', 'C#', 'PHP', 
       'Python', 'Java', 'SQL', 'Java'
     ],
     tools: [
@@ -202,7 +202,7 @@ export const Skills: React.FC = () => {
                 <h4 className="text-lg font-semibold text-accent mb-4">Développement Backend</h4>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span>Prisma / MySQL</span>
+                    <span>MySQL</span>
                     <div className="w-32 bg-secondary rounded-full h-2">
                       <div className="bg-accent h-2 rounded-full w-4/5"></div>
                     </div>

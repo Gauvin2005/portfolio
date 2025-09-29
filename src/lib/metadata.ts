@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export const siteConfig = {
   name: 'Gavin Rottet - Développeur Full-Stack',
-  description: 'Développeur web full-stack passionné, spécialisé en Next.js, Prisma et Tailwind CSS. Créateur de solutions numériques modernes et performantes.',
+  description: 'Développeur web full-stack passionné, spécialisé en Next.js et Tailwind CSS. Créateur de solutions numériques modernes et performantes.',
   url: 'https://gavinrottet.dev',
   ogImage: 'https://gavinrottet.dev/og-image.jpg',
   links: {
@@ -23,7 +23,6 @@ export const defaultMetadata: Metadata = {
     'full-stack',
     'Next.js',
     'React',
-    'Prisma',
     'MySQL',
     'Tailwind CSS',
     'freelance',

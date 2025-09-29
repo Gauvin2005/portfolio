@@ -66,13 +66,9 @@ git push -u origin main
    pscale connect portfolio main
    ```
 
-3. **Configurer Prisma**
+3. **Installer les dépendances**
    ```bash
-   # Générer le client Prisma
-   npx prisma generate
-   
-   # Pousser le schéma
-   npx prisma db push
+   npm install
    ```
 
 #### Option B: Railway (Alternative)
@@ -185,8 +181,7 @@ git push -u origin main
 2. **Problème de base de données**
    ```bash
    # Vérifier la connexion
-   npx prisma db push
-   npx prisma studio
+   npm run build
    ```
 
 3. **Cal.com ne s'affiche pas**
@@ -198,7 +193,6 @@ git push -u origin main
 
 - **Documentation Vercel**: [vercel.com/docs](https://vercel.com/docs)
 - **Documentation Cal.com**: [cal.com/docs](https://cal.com/docs)
-- **Documentation Prisma**: [prisma.io/docs](https://prisma.io/docs)
 
 ## 📈 Prochaines Étapes
 

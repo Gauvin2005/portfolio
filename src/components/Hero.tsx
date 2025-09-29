@@ -100,7 +100,7 @@ export const Hero: React.FC = () => {
           >
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Je crée des solutions numériques modernes et performantes pour les entreprises, 
-              avec une expertise en Next.js, Prisma et Tailwind CSS.
+              avec une expertise en Next.js et Tailwind CSS.
             </p>
 
             {/* CTA Button */}
