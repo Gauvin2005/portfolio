@@ -85,7 +85,7 @@ export const Experience: React.FC = () => {
           details: 'Automatisation de tâches planifiées sur Windows 11 avec Autotask.'
         }
       ],
-      technologies: ['POO', 'Méthode Agile', 'Autotask', 'Windows 11'],
+      technologies: ['POO', 'Méthode Agile', 'Autotask', 'C#', '.NET'],
       benefits: [
         'Expérience professionnelle internationale',
         'Maîtrise des méthodologies agiles',
