@@ -26,7 +26,7 @@ export const Experience: React.FC = () => {
       period: '17/02/2025 - 18/08/2025',
       featured: true,
       anchor: 'experience-crm',
-      projectImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+      projectImage: '/intervention112.png',
       summary: 'Conception et développement d\'une application web moderne pour la gestion des interventions médicales d\'urgence, remplaçant un ancien système et répondant aux enjeux de traçabilité, sécurité et ergonomie.',
       description: 'Conception et développement d\'une application web moderne pour le remplacement d\'un système obsolète (2008) de suivi des interventions médicales d\'urgence (112), avec l\'objectif "Zéro Papier".',
       role: 'Développeur full-stack avec une grande autonomie, responsable de la conception et de l\'implémentation de bout en bout de la solution. Apprentissage autodidacte et rapide des technologies clés.',
@@ -72,7 +72,7 @@ export const Experience: React.FC = () => {
       period: '02/2024 - 08/2024',
       featured: false,
       anchor: 'experience-abraxas',
-      projectImage: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop',
+      projectImage: '/publipostage.png',
       summary: 'Participation à un projet d\'équipe et acquisition de compétences variées en programmation orientée objet, méthode Agile et automatisation de tâches.',
       description: 'Participation à un projet d\'équipe dans un environnement professionnel suisse.',
       role: 'Stagiaire développeur participant aux projets de l\'équipe.',
@@ -182,13 +182,29 @@ export const Experience: React.FC = () => {
                   {/* Project Image */}
                   <div className="space-y-4">
                     <div className="relative">
+                      {/* Image pour mobile (visible jusqu'à 475px) */}
                       <Image
-                        src={exp.projectImage}
+                        src={exp.id === 2 ? '/publipostage.png' : exp.projectImage}
                         alt={`Projet ${exp.title}`}
                         width={400}
                         height={300}
-                        className="rounded-lg object-cover w-full h-64"
+                        className="rounded-lg object-cover w-full h-64 mobile-image"
                       />
+                      {/* Image pour desktop (visible à partir de 476px) */}
+                      <Image
+                        src={exp.id === 2 ? '/publipostage2.png' : exp.projectImage}
+                        alt={`Projet ${exp.title}`}
+                        width={400}
+                        height={300}
+                        className="rounded-lg object-contain w-full h-auto max-h-80 desktop-image"
+                      />
+                    </div>
+                    
+                    {/* Légendes */}
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground italic">
+                        {exp.id === 1 ? "Aperçu de l'interface" : exp.id === 2 ? "Illustration de publipostage" : ""}
+                      </p>
                     </div>
                   </div>
                 </div>

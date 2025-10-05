@@ -130,6 +130,17 @@
       oklch(0.05 0.01 240) 100%);
   }
   
+  /* Breakpoint personnalisé à 475px */
+  @media (max-width: 475px) {
+    .mobile-image { display: block !important; }
+    .desktop-image { display: none !important; }
+  }
+  
+  @media (min-width: 476px) {
+    .mobile-image { display: none !important; }
+    .desktop-image { display: block !important; }
+  }
+  
   .glass-effect {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
