@@ -68,7 +68,7 @@ export const Experience: React.FC = () => {
     {
       id: 2,
       title: 'Stage développeur .NET/C#',
-      company: 'Abraxas - Münchenstein (Suisse)',
+      company: 'Abraxas - Münchenstein (Suisse)🇨🇭',
       period: '02/2024 - 08/2024',
       featured: false,
       anchor: 'experience-abraxas',
@@ -188,7 +188,7 @@ export const Experience: React.FC = () => {
                         alt={`Projet ${exp.title}`}
                         width={400}
                         height={300}
-                        className="rounded-lg object-cover w-full h-64 mobile-image"
+                        className={`rounded-lg w-full h-64 mobile-image ${exp.id === 1 ? 'object-contain' : 'object-cover'}`}
                       />
                       {/* Image pour desktop (visible à partir de 476px) */}
                       <Image

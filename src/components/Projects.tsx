@@ -33,7 +33,7 @@ export const Projects: React.FC = () => {
       id: 1,
       title: 'Application de Gestion des Interventions Médicales',
       shortDescription: 'Application web moderne pour la gestion des interventions médicales d\'urgence.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop',
+      image: '/intervention112.png',
       experienceAnchor: '#experience-crm',
       featured: true
     },
@@ -41,7 +41,7 @@ export const Projects: React.FC = () => {
       id: 2,
       title: 'Projet Backend .NET/C#',
       shortDescription: 'Développement backend avec POO et méthodologies agiles.',
-      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop',
+      image: '/publipostage2.png',
       experienceAnchor: '#experience-abraxas',
       featured: false
     }
@@ -151,7 +151,7 @@ export const Projects: React.FC = () => {
                         alt={project.title}
                         width={300}
                         height={200}
-                        className="rounded-lg object-cover w-full h-48"
+                        className={`rounded-lg w-full h-48 ${project.id === 1 ? 'object-contain' : project.id === 2 ? 'object-contain' : 'object-cover'}`}
                       />
                     </div>
                     
