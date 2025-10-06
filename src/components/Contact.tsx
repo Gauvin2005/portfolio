@@ -23,6 +23,20 @@ export const Contact: React.FC = () => {
     visible: { opacity: 1, y: 0 }
   }
 
+  const scrollToProjects = () => {
+    const element = document.querySelector('#projets')
+    if (element) {
+      const headerOffset = 80 // Hauteur approximative de la navbar
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   return (
     <div className="space-y-8 sm:space-y-12">
       {/* Header */}
@@ -205,6 +219,7 @@ export const Contact: React.FC = () => {
                     size="lg" 
                     variant="outline"
                     className="px-8 py-4 text-lg font-semibold rounded-2xl border-2 hover:bg-primary/10"
+                    onClick={scrollToProjects}
                     aria-label="Voir les projets réalisés"
                   >
                     Voir Mes Projets
