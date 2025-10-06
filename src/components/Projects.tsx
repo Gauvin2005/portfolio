@@ -81,6 +81,13 @@ export const Projects: React.FC = () => {
       description: 'Encadrement d\'un étudiant de première année dans ses projets de programmation.',
       technologies: ['Python', 'Java', 'SQL'],
       images: ['/intervention112_2.png']
+    },
+    {
+      id: 'groupe-3',
+      title: 'Cavalons',
+      description: 'Le projet Cavalons consiste à développer une application distincte de gestion partagée, dédiée à l\'organisation de la demi-pension de chevaux. L\'objectif principal est de simplifier la coordination entre les propriétaires, les cavaliers et les coachs en offrant des fonctionnalités clés telles qu\'un calendrier partagé pour les réservations, la gestion des commentaires, le suivi budgétaire et des recommandations d\'exercices équestres interactifs.',
+      technologies: ['Next.js', 'TailwindCSS', 'Mapbox', 'Golang', 'PostgreSQL', 'API REST'],
+      images: ['/cavalons.png']
     }
   ]
 
