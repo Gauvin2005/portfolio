@@ -88,6 +88,13 @@ export const Projects: React.FC = () => {
       description: 'Le projet Cavalons consiste à développer une application distincte de gestion partagée, dédiée à l\'organisation de la demi-pension de chevaux. L\'objectif principal est de simplifier la coordination entre les propriétaires, les cavaliers et les coachs en offrant des fonctionnalités clés telles qu\'un calendrier partagé pour les réservations, la gestion des commentaires, le suivi budgétaire et des recommandations d\'exercices équestres interactifs.',
       technologies: ['Next.js', 'TailwindCSS', 'Mapbox', 'Golang', 'PostgreSQL', 'API REST'],
       images: ['/cavalons.png']
+    },
+    {
+      id: 'groupe-4',
+      title: 'Xip-Telecom',
+      description: 'XIP Telecom est une plateforme de gestion télécoms complète basée sur Odoo 18 avec une architecture moderne full-stack. Le projet intègre un système ERP Odoo pour la gestion métier, une API Express.js pour la logique applicative, et une interface Next.js moderne pour l\'expérience utilisateur.',
+      technologies: ['Odoo 18', 'PostgreSQL', 'Express.js', 'JWT', 'Next.js 14', 'Tailwind CSS', 'Radix UI', 'React 18', 'Docker Compose', 'Node.js'],
+      images: ['/xip-telecom.png']
     }
   ]
 
