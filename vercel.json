@@ -2,17 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "framework": "nextjs",
-  "functions": {
-    "app/api/**/*.ts": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "env": {
-    "DATABASE_URL": "@database_url",
-    "CALCOM_USERNAME": "@calcom_username",
-    "NEXTAUTH_SECRET": "@nextauth_secret",
-    "NEXTAUTH_URL": "@nextauth_url"
-  },
   "headers": [
     {
       "source": "/(.*)",
