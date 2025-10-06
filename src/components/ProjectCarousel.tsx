@@ -91,7 +91,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 gap-6 h-[500px]"
+            className="grid md:grid-cols-2 gap-8 h-[600px]"
           >
             {/* Project Images */}
             <div className="space-y-4">
@@ -100,24 +100,24 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                   <Image
                     src={currentProject.images[0]}
                     alt={currentProject.title}
-                    width={400}
-                    height={300}
-                    className="rounded-lg object-contain w-full h-48 bg-muted/20"
+                    width={500}
+                    height={400}
+                    className="rounded-lg object-contain w-full h-full bg-muted/20"
                   />
                 </ImageModal>
               </div>
               
               {/* Additional Images */}
               {currentProject.images.length > 1 && (
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-3">
                   {currentProject.images.slice(1, 3).map((image, idx) => (
                     <ImageModal key={idx} src={image} alt={`${currentProject.title} - Image ${idx + 2}`}>
                       <Image
                         src={image}
                         alt={`${currentProject.title} - Image ${idx + 2}`}
-                        width={200}
-                        height={150}
-                        className="rounded-lg object-contain w-full h-24 bg-muted/20"
+                        width={250}
+                        height={180}
+                        className="rounded-lg object-contain w-full h-full bg-muted/20"
                       />
                     </ImageModal>
                   ))}
