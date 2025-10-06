@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { AnimatedUnderline } from './AnimatedUnderline'
 import { EmailIcon, PhoneIcon } from './CustomIcon'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+import { StaticImage } from './StaticImage'
 
 export const About: React.FC = () => {
   const personalInfo = {
@@ -136,12 +136,13 @@ export const About: React.FC = () => {
               
               {/* Image principale */}
               <div className="relative bg-background rounded-full p-1">
-                <Image
+                <StaticImage
                   src="/gavin.png"
                   alt="Gavin Rottet"
                   width={120}
                   height={120}
                   className="rounded-full object-cover w-24 h-24 md:w-32 md:h-32"
+                  priority
                 />
               </div>
               
