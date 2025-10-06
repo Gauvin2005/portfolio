@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { GitHubIcon, LinkedInIcon, MenuIcon, XIcon } from './CustomIcon'
+import { AnimatedUnderline } from './AnimatedUnderline'
 import { CalModalCustom } from './CalModalCustom'
 import { cn } from '@/lib/utils'
 
@@ -72,9 +73,7 @@ export const Header: React.FC = () => {
             onClick={() => scrollToSection('#accueil')}
             className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
           >
-            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Gavin Rottet
-            </div>
+              <AnimatedUnderline className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Gavin Rottet</AnimatedUnderline>
           </button>
 
           {/* Desktop Navigation */}

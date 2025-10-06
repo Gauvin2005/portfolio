@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { GitHubIcon, LinkedInIcon } from './CustomIcon'
+import { AnimatedUnderline } from './AnimatedUnderline'
 import { motion } from 'framer-motion'
 
 export const Hero: React.FC = () => {
@@ -203,7 +204,7 @@ export const Hero: React.FC = () => {
             <h1 className="text-5xl md:text-7xl font-bold">
               <span className="block">Salut, je suis</span>
               <span className="block">
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Gavin</span>{' '}
+                <AnimatedUnderline className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Gavin</AnimatedUnderline>{' '}
                 <motion.span
                   whileHover={isMounted ? {
                     rotate: [0, -15, 15, -15, 15, -10, 10, 0],

@@ -3,6 +3,7 @@
 import React from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { AnimatedUnderline } from './AnimatedUnderline'
 import { EmailIcon, PhoneIcon } from './CustomIcon'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -44,7 +45,7 @@ export const About: React.FC = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating geometric shapes */}
         <motion.div
-          className="absolute top-20 left-10 w-16 h-16 border-2 border-blue-400/30 rotate-45"
+          className="absolute top-20 left-10 w-16 h-16 border-2 border-blue-400/70 rotate-45"
           animate={{
             y: [0, -30, 0],
             rotate: [45, 225, 45],
@@ -99,18 +100,6 @@ export const About: React.FC = () => {
         />
         
         {/* Circuit-like lines */}
-        <motion.div
-          className="absolute top-1/2 left-0 w-32 h-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"
-          animate={{
-            x: [-100, 100],
-            opacity: [0, 1, 0]
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
         <motion.div
           className="absolute top-1/3 right-0 w-24 h-0.5 bg-gradient-to-l from-transparent via-purple-400/50 to-transparent"
           animate={{
@@ -190,7 +179,7 @@ export const About: React.FC = () => {
       >
         {/* Contact Information */}
         <motion.div variants={itemVariants}>
-          <Card className="glass-effect h-full">
+          <Card className="glass-effect h-full" style={{ background: 'rgba(255, 255, 255, 0.02)', backdropFilter: 'blur(3px)' }}>
             <CardContent className="p-6 space-y-4">
               <h3 className="text-xl font-semibold text-primary mb-4">Informations Personnelles</h3>
               
@@ -198,7 +187,7 @@ export const About: React.FC = () => {
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full" />
                   <span className="font-medium">Nom :</span>
-                  <span>{personalInfo.name}</span>
+                  <AnimatedUnderline>{personalInfo.name}</AnimatedUnderline>
                 </div>
                 
                 <div className="flex items-center space-x-3">

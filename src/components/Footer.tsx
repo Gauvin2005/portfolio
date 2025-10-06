@@ -1,4 +1,5 @@
 import React from 'react'
+import { AnimatedUnderline } from './AnimatedUnderline'
 import { GitHubIcon, LinkedInIcon } from './CustomIcon'
 
 export const Footer: React.FC = () => {
@@ -8,7 +9,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
           {/* Copyright */}
           <div className="text-sm text-muted-foreground">
-            © 2025 Gavin Rottet. Tous droits réservés.
+            © 2025 <AnimatedUnderline>Gavin Rottet</AnimatedUnderline>. Tous droits réservés.
           </div>
 
           {/* Social Links */}
@@ -33,7 +34,7 @@ export const Footer: React.FC = () => {
 
           {/* Made with love */}
           <div className="text-sm text-muted-foreground">
-            Réalisé avec ❤️ par Gavin Rottet
+            Réalisé avec ❤️ par <AnimatedUnderline>Gavin Rottet</AnimatedUnderline>
           </div>
         </div>
       </div>
