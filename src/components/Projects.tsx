@@ -70,10 +70,10 @@ export const Projects: React.FC = () => {
   const groupeProjects = [
     {
       id: 'groupe-1',
-      title: 'Projet Flutter',
-      description: 'Application mobile cross-platform développée en équipe avec Flutter et Dart.',
-      technologies: ['Flutter', 'Dart', 'Firebase'],
-      images: ['/gavin.png']
+      title: 'ResQlife',
+      description: 'ResQlife est une application de sécurité communautaire qui permet aux utilisateurs d\'envoyer des alertes d\'urgence géolocalisées. Le système comprend : Application mobile (backend) : API NestJS qui gère les utilisateurs, alertes, géolocalisation et notifications push - Interface web (frontend) : Dashboard Angular pour les opérateurs qui reçoivent et traitent les alertes en temps réel - Système de gardiens : Les utilisateurs peuvent désigner des contacts de confiance qui reçoivent automatiquement leurs alertes - Communication vidéo : Intégration Jitsi pour les appels d\'urgence - Notifications temps réel : Server-Sent Events pour les mises à jour instantanées',
+      technologies: ['NestJS', 'TypeORM', 'MySQL', 'JWT Authentication', 'Passport', 'Firebase Admin', 'Server-Sent Events', 'Docker', 'Docker Compose', 'Nodemailer', 'Angular 17', 'TypeScript', 'Angular Material', 'Leaflet', 'JWT Decode', 'RxJS', 'Flutter'],
+      images: ['/ResQlife.png']
     },
     {
       id: 'groupe-2',
