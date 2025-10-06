@@ -1,33 +1,8 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "framework": "nextjs",
   "public": true,
-  "functions": {
-    "src/app/api/**/*.ts": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "headers": [
     {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        }
-      ]
-    },
-    {
-      "source": "/(.*\\.(png|jpg|jpeg|gif|svg|pdf|ico))",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -42,23 +17,8 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/public/(.*)",
-      "destination": "/$1",
-      "permanent": true
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*\\.(png|jpg|jpeg|gif|svg|pdf|ico))",
-      "dest": "/$1"
+      "source": "/assets/(.*)",
+      "destination": "/public/assets/$1"
     }
   ]
 }
-
-

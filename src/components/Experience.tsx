@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { getGithubAssetUrl } from '@/lib/githubAssets'
+import { getVercelAssetUrl } from '@/lib/vercelAssets'
 
 export const Experience: React.FC = () => {
   const [expandedExperiences, setExpandedExperiences] = useState<number[]>([])
@@ -27,7 +27,7 @@ export const Experience: React.FC = () => {
       period: '17/02/2025 - 18/08/2025',
       featured: true,
       anchor: 'experience-crm',
-      projectImage: getGithubAssetUrl('intervention112'),
+      projectImage: getVercelAssetUrl('intervention112'),
       summary: 'Conception et développement d\'une application web moderne pour la gestion des interventions médicales d\'urgence, remplaçant un ancien système et répondant aux enjeux de traçabilité, sécurité et ergonomie.',
       description: 'Conception et développement d\'une application web moderne pour le remplacement d\'un système obsolète (2008) de suivi des interventions médicales d\'urgence (112), avec l\'objectif "Zéro Papier".',
       role: 'Développeur full-stack avec une grande autonomie, responsable de la conception et de l\'implémentation de bout en bout de la solution. Apprentissage autodidacte et rapide des technologies clés.',
@@ -73,7 +73,7 @@ export const Experience: React.FC = () => {
       period: '02/2024 - 08/2024',
       featured: false,
       anchor: 'experience-abraxas',
-      projectImage: getGithubAssetUrl('publipostage'),
+      projectImage: getVercelAssetUrl('publipostage'),
       summary: 'Participation à un projet d\'équipe et acquisition de compétences variées en programmation orientée objet, méthode Agile et automatisation de tâches.',
       description: 'Participation à un projet d\'équipe dans un environnement professionnel suisse.',
       role: 'Stagiaire développeur participant aux projets de l\'équipe.',
@@ -310,7 +310,7 @@ export const Experience: React.FC = () => {
                     <div className="relative">
                       {/* Image pour mobile (visible jusqu'à 475px) */}
                       <Image
-                        src={exp.id === 2 ? getGithubAssetUrl('publipostage') : exp.projectImage}
+                        src={exp.id === 2 ? getVercelAssetUrl('publipostage') : exp.projectImage}
                         alt={`Projet ${exp.title}`}
                         width={400}
                         height={300}
@@ -318,7 +318,7 @@ export const Experience: React.FC = () => {
                       />
                       {/* Image pour desktop (visible à partir de 476px) */}
                       <Image
-                        src={exp.id === 2 ? getGithubAssetUrl('publipostage2') : exp.projectImage}
+                        src={exp.id === 2 ? getVercelAssetUrl('publipostage2') : exp.projectImage}
                         alt={`Projet ${exp.title}`}
                         width={400}
                         height={300}

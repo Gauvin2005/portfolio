@@ -8,7 +8,7 @@ import { ProjectCarousel } from './ProjectCarousel'
 import { ImageModal } from './ImageModal'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { getGithubAssetUrl } from '@/lib/githubAssets'
+import { getVercelAssetUrl } from '@/lib/vercelAssets'
 
 export const Projects: React.FC = () => {
   const [showAllProjects, setShowAllProjects] = useState(false)
@@ -35,7 +35,7 @@ export const Projects: React.FC = () => {
       id: 1,
       title: 'Application de Gestion des Interventions Médicales',
       shortDescription: 'Application web moderne pour la gestion des interventions médicales d\'urgence.',
-      image: getGithubAssetUrl('intervention112'),
+      image: getVercelAssetUrl('intervention112'),
       experienceAnchor: '#experience-crm',
       featured: true
     },
@@ -43,7 +43,7 @@ export const Projects: React.FC = () => {
       id: 2,
       title: 'Projet Backend .NET/C#',
       shortDescription: 'Développement backend avec POO et méthodologies agiles.',
-      image: getGithubAssetUrl('publipostage2'),
+      image: getVercelAssetUrl('publipostage2'),
       experienceAnchor: '#experience-abraxas',
       featured: false
     }
@@ -56,14 +56,14 @@ export const Projects: React.FC = () => {
       title: 'Projet HTML/CSS/JavaScript',
       description: 'Site web responsive, intégrant des animations et des effets visuels modernes.',
       technologies: ['HTML5', 'CSS3', 'PHP', 'JavaScript', 'MySQL', 'Bootstrap', 'PHPMyAdmin', 'API Rest', 'JWT'],
-      images: [getGithubAssetUrl('filRouge1')]
+      images: [getVercelAssetUrl('filRouge1')]
     },
     {
       id: 'formation-2',
       title: 'Logiciel de Création de Niveaux de Casse-Brique',
       description: 'Application de création de niveaux avec interface drag & drop pour placer des formes géométriques (carré, rond, rectangle, triangle) dans une zone de dessin. Les niveaux sont sauvegardés en base de données H2 via MariaDB.',
       technologies: ['Java', 'Lombok', 'Maven', 'Spring Boot', 'React', 'TailwindCSS', 'Docker', 'MariaDB', 'H2'],
-      images: [getGithubAssetUrl('filRouge2')]
+      images: [getVercelAssetUrl('filRouge2')]
     }
   ]
 
@@ -74,7 +74,7 @@ export const Projects: React.FC = () => {
       title: 'ResQlife',
       description: 'ResQlife est une application de sécurité communautaire qui permet aux utilisateurs d\'envoyer des alertes d\'urgence géolocalisées. Le système comprend : Application mobile (backend) : API NestJS qui gère les utilisateurs, alertes, géolocalisation et notifications push - Interface web (frontend) : Dashboard Angular pour les opérateurs qui reçoivent et traitent les alertes en temps réel - Système de gardiens : Les utilisateurs peuvent désigner des contacts de confiance qui reçoivent automatiquement leurs alertes - Communication vidéo : Intégration Jitsi pour les appels d\'urgence - Notifications temps réel : Server-Sent Events pour les mises à jour instantanées',
       technologies: ['NestJS', 'TypeORM', 'MySQL', 'JWT Authentication', 'Passport', 'Firebase Admin', 'Server-Sent Events', 'Docker', 'Docker Compose', 'Nodemailer', 'Angular 17', 'TypeScript', 'Angular Material', 'Leaflet', 'JWT Decode', 'RxJS', 'Flutter'],
-      images: [getGithubAssetUrl('ResQlife')]
+      images: [getVercelAssetUrl('ResQlife')]
     },
     // En attente des informations de Design & Concept
     // {
@@ -89,14 +89,14 @@ export const Projects: React.FC = () => {
       title: 'Cavalons',
       description: 'Le projet Cavalons consiste à développer une application distincte de gestion partagée, dédiée à l\'organisation de la demi-pension de chevaux. L\'objectif principal est de simplifier la coordination entre les propriétaires, les cavaliers et les coachs en offrant des fonctionnalités clés telles qu\'un calendrier partagé pour les réservations, la gestion des commentaires, le suivi budgétaire et des recommandations d\'exercices équestres interactifs.',
       technologies: ['Next.js', 'TailwindCSS', 'Mapbox', 'Golang', 'PostgreSQL', 'API REST'],
-      images: [getGithubAssetUrl('cavalons')]
+      images: [getVercelAssetUrl('cavalons')]
     },
     {
       id: 'groupe-4',
       title: 'Xip-Telecom',
       description: 'XIP Telecom est une plateforme de gestion télécoms complète basée sur Odoo 18 avec une architecture moderne full-stack. Le projet intègre un système ERP Odoo pour la gestion métier, une API Express.js pour la logique applicative, et une interface Next.js moderne pour l\'expérience utilisateur. Dans ce projet, j\'ai été le scrum master de l\'équipe, c\'est à dire que je gérais les réunions, les tâches, les développements, et je faisais le point avec le client.',
       technologies: ['Odoo 18', 'PostgreSQL', 'Express.js', 'JWT', 'Next.js 14', 'Tailwind CSS', 'Radix UI', 'React 18', 'Docker Compose', 'Node.js'],
-      images: [getGithubAssetUrl('xipTelecom')]
+      images: [getVercelAssetUrl('xipTelecom')]
     }
   ]
 

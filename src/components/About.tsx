@@ -6,8 +6,8 @@ import { Badge } from '@/components/ui/badge'
 import { AnimatedUnderline } from './AnimatedUnderline'
 import { EmailIcon, PhoneIcon } from './CustomIcon'
 import { motion } from 'framer-motion'
-import { StaticImage } from './StaticImage'
-import { getGithubAssetUrl } from '@/lib/githubAssets'
+import Image from 'next/image'
+import { getVercelAssetUrl } from '@/lib/vercelAssets'
 
 export const About: React.FC = () => {
   const personalInfo = {
@@ -137,13 +137,14 @@ export const About: React.FC = () => {
               
               {/* Image principale */}
               <div className="relative bg-background rounded-full p-1">
-                <StaticImage
-                  src={getGithubAssetUrl('gavin')}
+                <Image
+                  src={getVercelAssetUrl('gavin')}
                   alt="Gavin Rottet"
                   width={120}
                   height={120}
                   className="rounded-full object-cover w-24 h-24 md:w-32 md:h-32"
                   priority
+                  unoptimized
                 />
               </div>
               
