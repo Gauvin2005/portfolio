@@ -73,14 +73,14 @@ export const Projects: React.FC = () => {
       title: 'Projet Flutter',
       description: 'Application mobile cross-platform développée en équipe avec Flutter et Dart.',
       technologies: ['Flutter', 'Dart', 'Firebase'],
-      images: ['https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop']
+      images: ['/gavin.png']
     },
     {
       id: 'groupe-2',
       title: 'Supervision Étudiant',
       description: 'Encadrement d\'un étudiant de première année dans ses projets de programmation.',
       technologies: ['Python', 'Java', 'SQL'],
-      images: ['https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop']
+      images: ['/intervention112_2.png']
     }
   ]
 
