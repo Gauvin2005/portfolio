@@ -75,13 +75,14 @@ export const Projects: React.FC = () => {
       technologies: ['NestJS', 'TypeORM', 'MySQL', 'JWT Authentication', 'Passport', 'Firebase Admin', 'Server-Sent Events', 'Docker', 'Docker Compose', 'Nodemailer', 'Angular 17', 'TypeScript', 'Angular Material', 'Leaflet', 'JWT Decode', 'RxJS', 'Flutter'],
       images: ['/ResQlife.png']
     },
-    {
-      id: 'groupe-2',
-      title: 'Supervision Étudiant',
-      description: 'Encadrement d\'un étudiant de première année dans ses projets de programmation.',
-      technologies: ['Python', 'Java', 'SQL'],
-      images: ['/intervention112_2.png']
-    },
+    // En attente des informations de Design & Concept
+    // {
+    //   id: 'groupe-2',
+    //   title: 'Design & Concept',
+    //   description: 'Le projet de design & concept consiste à créer une interface utilisateur pour les entreprises qui souhaitent se développer.',
+    //   technologies: ['Express.js, 'TailwindCSS'],
+    //   images: ['/design-concept.png']
+    // },
     {
       id: 'groupe-3',
       title: 'Cavalons',
@@ -92,7 +93,7 @@ export const Projects: React.FC = () => {
     {
       id: 'groupe-4',
       title: 'Xip-Telecom',
-      description: 'XIP Telecom est une plateforme de gestion télécoms complète basée sur Odoo 18 avec une architecture moderne full-stack. Le projet intègre un système ERP Odoo pour la gestion métier, une API Express.js pour la logique applicative, et une interface Next.js moderne pour l\'expérience utilisateur.',
+      description: 'XIP Telecom est une plateforme de gestion télécoms complète basée sur Odoo 18 avec une architecture moderne full-stack. Le projet intègre un système ERP Odoo pour la gestion métier, une API Express.js pour la logique applicative, et une interface Next.js moderne pour l\'expérience utilisateur. Dans ce projet, j\'ai été le scrum master de l\'équipe, c\'est à dire que je gérais les réunions, les tâches, les développements, et je faisais le point avec le client.',
       technologies: ['Odoo 18', 'PostgreSQL', 'Express.js', 'JWT', 'Next.js 14', 'Tailwind CSS', 'Radix UI', 'React 18', 'Docker Compose', 'Node.js'],
       images: ['/xip-telecom.png']
     }
