@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center gradient-bg relative overflow-hidden">
+    <div id="accueil" className="min-h-screen flex items-center justify-center gradient-bg relative overflow-hidden">
       {/* Background Effects */}
       <div className="floating-shapes absolute inset-0" />
       
