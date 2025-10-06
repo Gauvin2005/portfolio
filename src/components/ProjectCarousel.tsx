@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { ImageModal } from './ImageModal'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react'
 
 interface Project {
   id: string
@@ -67,7 +67,37 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
   return (
     <div className={`space-y-6 ${className}`}>
       <div className="text-center">
-        <h3 className="text-2xl font-bold text-primary mb-2">{title}</h3>
+        <div className="flex items-center justify-center gap-4 mb-2">
+          <h3 className="text-2xl font-bold text-primary">{title}</h3>
+          {projects.length > 1 && (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                if (isAutoPlaying) {
+                  setIsAutoPlaying(false)
+                } else {
+                  setIsAutoPlaying(true)
+                  // Passer au slide suivant immédiatement pour montrer que ça fonctionne
+                  setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length)
+                }
+              }}
+              className="flex items-center gap-2"
+            >
+              {isAutoPlaying ? (
+                <>
+                  <Pause className="h-4 w-4" />
+                  Pause
+                </>
+              ) : (
+                <>
+                  <Play className="h-4 w-4" />
+                  Play
+                </>
+              )}
+            </Button>
+          )}
+        </div>
         <div className="flex justify-center space-x-2 mb-4">
           {projects.map((_, index) => (
             <button
