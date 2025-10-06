@@ -24,44 +24,171 @@ export const Hero: React.FC = () => {
       {/* Background Effects */}
       <div className="floating-shapes absolute inset-0" />
       
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-xl"
-          animate={isMounted ? {
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-          } : {}}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-xl"
-          animate={isMounted ? {
-            y: [0, 20, 0],
-            x: [0, -10, 0],
-          } : {}}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/4 w-24 h-24 bg-primary/5 rounded-full blur-lg"
-          animate={isMounted ? {
-            y: [0, -30, 0],
-            rotate: [0, 180, 360],
-          } : {}}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+      {/* Gaming Rain Effect */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Hexagonal shapes falling */}
+        {Array.from({ length: 8 }).map((_, i) => (
+          <motion.div
+            key={`hex-${i}`}
+            className="absolute w-6 h-6 bg-gradient-to-r from-emerald-400/20 to-teal-400/20"
+            style={{
+              clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+              left: `${10 + i * 12}%`,
+              top: '-50px'
+            }}
+            animate={isMounted ? {
+              y: [0, window.innerHeight + 100],
+              rotate: [0, 360],
+              scale: [1, 0.8, 1]
+            } : {}}
+            transition={{
+              duration: 8 + i * 0.5,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 0.8
+            }}
+          />
+        ))}
+        
+        {/* Diamond shapes falling */}
+        {Array.from({ length: 6 }).map((_, i) => (
+          <motion.div
+            key={`diamond-${i}`}
+            className="absolute w-4 h-4 bg-gradient-to-r from-purple-400/25 to-pink-400/25 rotate-45"
+            style={{
+              left: `${15 + i * 15}%`,
+              top: '-30px'
+            }}
+            animate={isMounted ? {
+              y: [0, window.innerHeight + 100],
+              rotate: [45, 405],
+              x: [0, Math.sin(i) * 20]
+            } : {}}
+            transition={{
+              duration: 6 + i * 0.3,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 1.2
+            }}
+          />
+        ))}
+        
+        {/* Square shapes falling */}
+        {Array.from({ length: 5 }).map((_, i) => (
+          <motion.div
+            key={`square-${i}`}
+            className="absolute w-5 h-5 bg-gradient-to-r from-blue-400/15 to-cyan-400/15"
+            style={{
+              left: `${20 + i * 18}%`,
+              top: '-40px'
+            }}
+            animate={isMounted ? {
+              y: [0, window.innerHeight + 100],
+              rotate: [0, 180, 360],
+              scale: [1, 1.2, 1]
+            } : {}}
+            transition={{
+              duration: 7 + i * 0.4,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 0.6
+            }}
+          />
+        ))}
+        
+        {/* Circle shapes falling */}
+        {Array.from({ length: 7 }).map((_, i) => (
+          <motion.div
+            key={`circle-${i}`}
+            className="absolute w-3 h-3 bg-gradient-to-r from-orange-400/20 to-yellow-400/20 rounded-full"
+            style={{
+              left: `${8 + i * 13}%`,
+              top: '-25px'
+            }}
+            animate={isMounted ? {
+              y: [0, window.innerHeight + 100],
+              x: [0, Math.cos(i) * 15],
+              scale: [1, 0.6, 1]
+            } : {}}
+            transition={{
+              duration: 9 + i * 0.2,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 1.5
+            }}
+          />
+        ))}
+        
+        {/* Triangle shapes falling */}
+        {Array.from({ length: 4 }).map((_, i) => (
+          <motion.div
+            key={`triangle-${i}`}
+            className="absolute w-0 h-0 border-l-4 border-r-4 border-b-6 border-transparent border-b-red-400/18"
+            style={{
+              left: `${25 + i * 20}%`,
+              top: '-35px'
+            }}
+            animate={isMounted ? {
+              y: [0, window.innerHeight + 100],
+              rotate: [0, 120, 240, 360],
+              x: [0, Math.sin(i * 2) * 25]
+            } : {}}
+            transition={{
+              duration: 5 + i * 0.6,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 0.9
+            }}
+          />
+        ))}
+        
+        {/* Code brackets falling */}
+        {Array.from({ length: 3 }).map((_, i) => (
+          <motion.div
+            key={`bracket-${i}`}
+            className="absolute text-2xl font-bold text-lime-400/15"
+            style={{
+              left: `${30 + i * 25}%`,
+              top: '-20px'
+            }}
+            animate={isMounted ? {
+              y: [0, window.innerHeight + 100],
+              rotate: [0, 180],
+              scale: [1, 1.3, 1]
+            } : {}}
+            transition={{
+              duration: 10 + i * 0.8,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 2
+            }}
+          >
+            {i % 2 === 0 ? '{' : '}'}
+          </motion.div>
+        ))}
+        
+        {/* Floating particles */}
+        {Array.from({ length: 12 }).map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute w-1 h-1 bg-white/10 rounded-full"
+            style={{
+              left: `${5 + i * 8}%`,
+              top: `${10 + (i % 3) * 30}%`
+            }}
+            animate={isMounted ? {
+              y: [0, -20, 0],
+              x: [0, Math.sin(i) * 10, 0],
+              opacity: [0.1, 0.4, 0.1]
+            } : {}}
+            transition={{
+              duration: 3 + i * 0.2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.3
+            }}
+          />
+        ))}
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 relative z-10">
