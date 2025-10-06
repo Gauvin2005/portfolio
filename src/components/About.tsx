@@ -7,7 +7,7 @@ import { AnimatedUnderline } from './AnimatedUnderline'
 import { EmailIcon, PhoneIcon } from './CustomIcon'
 import { motion } from 'framer-motion'
 import { StaticImage } from './StaticImage'
-import gavinImage from '@/assets/images/gavin.png'
+import { getSimpleAssetUrl } from '@/lib/simpleAssets'
 
 export const About: React.FC = () => {
   const personalInfo = {
@@ -138,7 +138,7 @@ export const About: React.FC = () => {
               {/* Image principale */}
               <div className="relative bg-background rounded-full p-1">
                 <StaticImage
-                  src={gavinImage.src}
+                  src={getSimpleAssetUrl('gavin')}
                   alt="Gavin Rottet"
                   width={120}
                   height={120}

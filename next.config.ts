@@ -4,8 +4,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
     domains: [],
-    loader: 'custom',
-    loaderFile: './src/lib/imageLoader.ts',
   },
   // Configuration pour les fichiers statiques
   trailingSlash: false,
@@ -13,14 +11,6 @@ const nextConfig: NextConfig = {
   // Configuration pour Turbopack (nouvelle syntaxe)
   experimental: {
     staticGenerationRetryCount: 3,
-  },
-  turbopack: {
-    rules: {
-      '*.pdf': {
-        loaders: ['raw-loader'],
-        as: '*.js',
-      },
-    },
   },
   // Configuration pour Vercel
   output: 'standalone',

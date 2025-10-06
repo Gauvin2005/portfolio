@@ -9,7 +9,6 @@ interface StaticImageProps {
   height?: number
   className?: string
   priority?: boolean
-  quality?: number
 }
 
 // Composant d'image statique qui utilise des balises img classiques
@@ -19,10 +18,10 @@ export const StaticImage: React.FC<StaticImageProps> = ({
   width,
   height,
   className = '',
-  priority = false,
-  quality = 75
+  priority = false
 }) => {
   return (
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={src}
       alt={alt}

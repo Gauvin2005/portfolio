@@ -6,14 +6,14 @@ import { Button } from '@/components/ui/button'
 import { DownloadIcon, PrintIcon } from './CustomIcon'
 import { motion } from 'framer-motion'
 import { toast } from 'sonner'
-import cvPdf from '@/assets/images/Gavin_Rottet_CV.pdf'
+import { getSimpleAssetUrl } from '@/lib/simpleAssets'
 
 export const CV: React.FC = () => {
   const [showCvInfo, setShowCvInfo] = useState(false)
 
   const handleDownload = () => {
     const a = document.createElement('a')
-    a.href = cvPdf
+    a.href = getSimpleAssetUrl('cv')
     a.download = 'Gavin_Rottet_CV.pdf'
     document.body.appendChild(a)
     a.click()
@@ -23,12 +23,13 @@ export const CV: React.FC = () => {
   const handlePrint = () => {
     try {
       // Print default CV
-      window.open(cvPdf, '_blank')
+      window.open(getSimpleAssetUrl('cv'), '_blank')
       toast.success('Impression lancée!')
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Print error:', error)
       toast.error('Erreur lors de l\'impression. Le fichier PDF s\'ouvrira dans un nouvel onglet.')
-      window.open(cvPdf, '_blank')
+      window.open(getSimpleAssetUrl('cv'), '_blank')
     }
   }
 
@@ -265,7 +266,7 @@ export const CV: React.FC = () => {
               
               <div className="relative">
                 <iframe
-                  src={cvPdf}
+                  src={getSimpleAssetUrl('cv')}
                   className="w-full h-[600px] border border-border rounded-lg"
                   title="CV Preview"
                 />
