@@ -100,7 +100,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                   alt={currentProject.title}
                   width={400}
                   height={300}
-                  className="rounded-lg object-cover w-full h-48"
+                  className="rounded-lg object-contain w-full h-48 bg-muted/20"
                 />
               </div>
               
@@ -114,7 +114,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                       alt={`${currentProject.title} - Image ${idx + 2}`}
                       width={200}
                       height={150}
-                      className="rounded-lg object-cover w-full h-24"
+                      className="rounded-lg object-contain w-full h-24 bg-muted/20"
                     />
                   ))}
                 </div>

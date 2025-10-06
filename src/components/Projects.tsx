@@ -51,10 +51,10 @@ export const Projects: React.FC = () => {
   const formationProjects = [
     {
       id: 'formation-1',
-      title: 'Projet HTML/CSS',
-      description: 'Site web responsive développé avec HTML5 et CSS3, intégrant des animations et des effets visuels modernes.',
+      title: 'Projet HTML/CSS/JavaScript',
+      description: 'Site web responsive, intégrant des animations et des effets visuels modernes.',
       technologies: ['HTML5', 'CSS3', 'JavaScript'],
-      images: ['https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=300&fit=crop']
+      images: ['/filRouge1.png']
     },
     {
       id: 'formation-2',
