@@ -177,7 +177,7 @@ export const Projects: React.FC = () => {
                         size="sm"
                         className="w-full mt-auto"
                       >
-                        Voir l'expérience détaillée
+                        Voir l&apos;expérience détaillée
                       </Button>
                     </div>
                   </div>

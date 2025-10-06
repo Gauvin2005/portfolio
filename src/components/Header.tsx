@@ -20,8 +20,11 @@ export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('accueil')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
       
@@ -57,7 +60,7 @@ export const Header: React.FC = () => {
     <header 
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled 
+        isMounted && isScrolled 
           ? 'glass-effect border-b border-border/50' 
           : 'bg-transparent'
       )}
@@ -82,7 +85,7 @@ export const Header: React.FC = () => {
                 onClick={() => scrollToSection(item.href)}
                 className={cn(
                   'text-sm font-medium transition-colors hover:text-primary',
-                  activeSection === item.href.slice(1)
+                  isMounted && activeSection === item.href.slice(1)
                     ? 'text-primary'
                     : 'text-muted-foreground'
                 )}
@@ -146,7 +149,7 @@ export const Header: React.FC = () => {
                   onClick={() => scrollToSection(item.href)}
                   className={cn(
                     'text-left py-2 px-4 rounded-lg transition-colors hover:bg-primary/10',
-                    activeSection === item.href.slice(1)
+                    isMounted && activeSection === item.href.slice(1)
                       ? 'text-primary bg-primary/10'
                       : 'text-muted-foreground hover:text-primary'
                   )}
