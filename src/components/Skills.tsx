@@ -17,7 +17,8 @@ export const Skills: React.FC = () => {
     ],
     tools: [
       'Méthode Agile (Jira, Confluence)', 'POO', 'Autotask', 
-      'Slack', 'Teams', 'PowerPoint', 'Word', 'Docker', 'CI/CD'
+      'Slack', 'Teams', 'PowerPoint', 'Word', 'Docker', 'CI/CD',
+      'Cursor', 'Ubuntu', 'Git (GitHub, GitLab, CI/CD, Actions, Pipelines, Runners)'
     ]
   }
 
@@ -162,63 +163,44 @@ export const Skills: React.FC = () => {
         className="space-y-8"
       >
         <motion.h3 variants={itemVariants} className="text-2xl font-semibold text-center">
-          Expertise par Domaine
+          Domaines préférés
         </motion.h3>
         
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Frontend Expertise */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Frontend */}
           <motion.div variants={itemVariants}>
             <Card className="glass-effect">
               <CardContent className="p-6">
-                <h4 className="text-lg font-semibold text-primary mb-4">Développement Frontend</h4>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span>Next.js / React</span>
-                    <div className="w-32 bg-secondary rounded-full h-2">
-                      <div className="bg-primary h-2 rounded-full w-4/5"></div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Tailwind CSS</span>
-                    <div className="w-32 bg-secondary rounded-full h-2">
-                      <div className="bg-primary h-2 rounded-full w-4/5"></div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>JavaScript</span>
-                    <div className="w-32 bg-secondary rounded-full h-2">
-                      <div className="bg-primary h-2 rounded-full w-3/4"></div>
-                    </div>
-                  </div>
+                <h4 className="text-lg font-semibold text-primary mb-4">Frontend</h4>
+                <div className="space-y-2">
+                  <div className="text-sm">NextJS</div>
+                  <div className="text-sm">ShadcnUI</div>
                 </div>
               </CardContent>
             </Card>
           </motion.div>
 
-          {/* Backend Expertise */}
+          {/* Backend */}
           <motion.div variants={itemVariants}>
             <Card className="glass-effect">
               <CardContent className="p-6">
-                <h4 className="text-lg font-semibold text-accent mb-4">Développement Backend</h4>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span>MySQL</span>
-                    <div className="w-32 bg-secondary rounded-full h-2">
-                      <div className="bg-accent h-2 rounded-full w-4/5"></div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>C# / .NET</span>
-                    <div className="w-32 bg-secondary rounded-full h-2">
-                      <div className="bg-accent h-2 rounded-full w-3/4"></div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Python / PHP</span>
-                    <div className="w-32 bg-secondary rounded-full h-2">
-                      <div className="bg-accent h-2 rounded-full w-2/3"></div>
-                    </div>
-                  </div>
+                <h4 className="text-lg font-semibold text-accent mb-4">Backend</h4>
+                <div className="space-y-2">
+                  <div className="text-sm">Express</div>
+                  <div className="text-sm">Docker</div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* Base de données */}
+          <motion.div variants={itemVariants}>
+            <Card className="glass-effect">
+              <CardContent className="p-6">
+                <h4 className="text-lg font-semibold text-secondary-foreground mb-4">Base de données</h4>
+                <div className="space-y-2">
+                  <div className="text-sm">MySQL</div>
+                  <div className="text-sm">Prisma</div>
                 </div>
               </CardContent>
             </Card>
