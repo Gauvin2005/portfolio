@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ProjectCarousel } from './ProjectCarousel'
+import { ImageModal } from './ImageModal'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -53,7 +54,7 @@ export const Projects: React.FC = () => {
       id: 'formation-1',
       title: 'Projet HTML/CSS/JavaScript',
       description: 'Site web responsive, intégrant des animations et des effets visuels modernes.',
-      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      technologies: ['HTML5', 'CSS3', 'PHP', 'JavaScript', 'MySQL', 'Bootstrap', 'PHPMyAdmin', 'API Rest', 'JWT'],
       images: ['/filRouge1.png']
     },
     {
@@ -146,13 +147,15 @@ export const Projects: React.FC = () => {
                   <div className="space-y-4 flex flex-col h-full">
                     {/* Project Image */}
                     <div className="relative flex-shrink-0">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        width={300}
-                        height={200}
-                        className={`rounded-lg w-full h-48 ${project.id === 1 ? 'object-contain' : project.id === 2 ? 'object-contain' : 'object-cover'}`}
-                      />
+                      <ImageModal src={project.image} alt={project.title}>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={300}
+                          height={200}
+                          className={`rounded-lg w-full h-48 ${project.id === 1 ? 'object-contain' : project.id === 2 ? 'object-contain' : 'object-cover'}`}
+                        />
+                      </ImageModal>
                     </div>
                     
                     {/* Project Info */}

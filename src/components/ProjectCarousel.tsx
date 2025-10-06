@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { ImageModal } from './ImageModal'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -95,27 +96,30 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
             {/* Project Images */}
             <div className="space-y-4">
               <div className="relative">
-                <Image
-                  src={currentProject.images[0]}
-                  alt={currentProject.title}
-                  width={400}
-                  height={300}
-                  className="rounded-lg object-contain w-full h-48 bg-muted/20"
-                />
+                <ImageModal src={currentProject.images[0]} alt={currentProject.title}>
+                  <Image
+                    src={currentProject.images[0]}
+                    alt={currentProject.title}
+                    width={400}
+                    height={300}
+                    className="rounded-lg object-contain w-full h-48 bg-muted/20"
+                  />
+                </ImageModal>
               </div>
               
               {/* Additional Images */}
               {currentProject.images.length > 1 && (
                 <div className="grid grid-cols-2 gap-2">
                   {currentProject.images.slice(1, 3).map((image, idx) => (
-                    <Image
-                      key={idx}
-                      src={image}
-                      alt={`${currentProject.title} - Image ${idx + 2}`}
-                      width={200}
-                      height={150}
-                      className="rounded-lg object-contain w-full h-24 bg-muted/20"
-                    />
+                    <ImageModal key={idx} src={image} alt={`${currentProject.title} - Image ${idx + 2}`}>
+                      <Image
+                        src={image}
+                        alt={`${currentProject.title} - Image ${idx + 2}`}
+                        width={200}
+                        height={150}
+                        className="rounded-lg object-contain w-full h-24 bg-muted/20"
+                      />
+                    </ImageModal>
                   ))}
                 </div>
               )}
