@@ -169,7 +169,7 @@ export const Skills: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-6">
           {/* Frontend */}
           <motion.div variants={itemVariants}>
-            <Card className="glass-effect">
+            <Card className="glass-effect group hover:border-primary/50 transition-all duration-300">
               <CardContent className="p-6">
                 <h4 className="text-lg font-semibold text-primary mb-4">Frontend</h4>
                 <div className="space-y-2">
@@ -182,7 +182,7 @@ export const Skills: React.FC = () => {
 
           {/* Backend */}
           <motion.div variants={itemVariants}>
-            <Card className="glass-effect">
+            <Card className="glass-effect group hover:border-accent/50 transition-all duration-300">
               <CardContent className="p-6">
                 <h4 className="text-lg font-semibold text-accent mb-4">Backend</h4>
                 <div className="space-y-2">
@@ -195,7 +195,7 @@ export const Skills: React.FC = () => {
 
           {/* Base de données */}
           <motion.div variants={itemVariants}>
-            <Card className="glass-effect">
+            <Card className="glass-effect group hover:border-secondary-foreground/50 transition-all duration-300">
               <CardContent className="p-6">
                 <h4 className="text-lg font-semibold text-secondary-foreground mb-4">Base de données</h4>
                 <div className="space-y-2">
