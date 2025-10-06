@@ -12,8 +12,7 @@ const nextConfig: NextConfig = {
   experimental: {
     staticGenerationRetryCount: 3,
   },
-  // Configuration pour Vercel
-  output: 'standalone',
+  // Configuration pour Vercel - output: 'standalone' supprimé pour permettre le service des fichiers statiques
 };
 
 export default nextConfig;
