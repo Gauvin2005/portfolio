@@ -106,14 +106,167 @@ export const CV: React.FC = () => {
   }
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 relative">
+      {/* Animated Background Elements - Document/Tech Style */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Document-like shapes */}
+        <motion.div
+          className="absolute top-24 left-20 w-16 h-20 bg-gradient-to-b from-slate-400/15 to-gray-400/15 rounded-sm"
+          animate={{
+            rotate: [0, 5, -5, 0],
+            y: [0, -15, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute top-1/3 right-24 w-12 h-16 bg-gradient-to-b from-violet-400/20 to-purple-400/20 rounded-sm"
+          animate={{
+            rotate: [0, -8, 8, 0],
+            x: [0, 20, 0],
+            y: [0, -10, 0]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        
+        {/* Code brackets */}
+        <motion.div
+          className="absolute bottom-32 left-16 text-4xl font-bold text-lime-400/30"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5
+          }}
+        >
+          {'{'}
+        </motion.div>
+        <motion.div
+          className="absolute bottom-20 right-16 text-4xl font-bold text-lime-400/30"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        >
+          {'}'}
+        </motion.div>
+        
+        {/* Floating icons */}
+        <motion.div
+          className="absolute top-1/2 left-1/4 w-6 h-6 bg-gradient-to-r from-sky-400/25 to-cyan-400/25 rounded-full flex items-center justify-center"
+          animate={{
+            y: [0, -25, 0],
+            rotate: [0, 180, 360],
+            scale: [1, 0.8, 1]
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.5
+          }}
+        >
+          <span className="text-xs text-sky-400/60">📄</span>
+        </motion.div>
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-8 h-8 bg-gradient-to-r from-orange-400/25 to-red-400/25 rounded-full flex items-center justify-center"
+          animate={{
+            y: [0, 20, 0],
+            x: [0, -15, 0],
+            rotate: [0, -180, -360]
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3
+          }}
+        >
+          <span className="text-sm text-orange-400/60">💼</span>
+        </motion.div>
+        
+        {/* Data flow lines */}
+        <motion.div
+          className="absolute top-1/4 left-0 w-36 h-0.5 bg-gradient-to-r from-transparent via-slate-400/50 to-transparent"
+          animate={{
+            x: [-150, 150],
+            opacity: [0, 1, 0]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/3 right-0 w-28 h-0.5 bg-gradient-to-l from-transparent via-violet-400/50 to-transparent"
+          animate={{
+            x: [150, -150],
+            opacity: [0, 1, 0]
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "linear",
+            delay: 2
+          }}
+        />
+        
+        {/* Corner decorations */}
+        <motion.div
+          className="absolute top-0 right-0 w-20 h-20 border-r-2 border-t-2 border-lime-400/20"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.4, 0.2]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-sky-400/20"
+          animate={{
+            scale: [1, 0.8, 1],
+            opacity: [0.2, 0.5, 0.2]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2.5
+          }}
+        />
+      </div>
+
       {/* Header */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="text-center space-y-6"
+        className="text-center space-y-6 relative z-10"
       >
         <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold">
           Mon CV
@@ -132,7 +285,7 @@ export const CV: React.FC = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="space-y-8"
+        className="space-y-8 relative z-10"
       >
         {/* Action Buttons */}
         <motion.div variants={itemVariants}>

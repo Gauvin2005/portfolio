@@ -39,14 +39,100 @@ export const About: React.FC = () => {
   }
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 relative">
+      {/* Animated Background Elements - Gaming Style */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Floating geometric shapes */}
+        <motion.div
+          className="absolute top-20 left-10 w-16 h-16 border-2 border-blue-400/30 rotate-45"
+          animate={{
+            y: [0, -30, 0],
+            rotate: [45, 225, 45],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute top-40 right-20 w-12 h-12 bg-purple-500/20 rounded-full"
+          animate={{
+            x: [0, 20, 0],
+            y: [0, -20, 0],
+            scale: [1, 0.8, 1]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        <motion.div
+          className="absolute bottom-32 left-1/4 w-20 h-20 border-2 border-cyan-400/40 transform rotate-12"
+          animate={{
+            rotate: [12, 372, 12],
+            x: [0, 15, 0],
+            y: [0, -25, 0]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-1/3 w-8 h-8 bg-orange-400/25 rounded-full"
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.25, 0.6, 0.25]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5
+          }}
+        />
+        
+        {/* Circuit-like lines */}
+        <motion.div
+          className="absolute top-1/2 left-0 w-32 h-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"
+          animate={{
+            x: [-100, 100],
+            opacity: [0, 1, 0]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        <motion.div
+          className="absolute top-1/3 right-0 w-24 h-0.5 bg-gradient-to-l from-transparent via-purple-400/50 to-transparent"
+          animate={{
+            x: [100, -100],
+            opacity: [0, 1, 0]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "linear",
+            delay: 1.5
+          }}
+        />
+      </div>
+
       {/* Introduction */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="space-y-6"
+        className="space-y-6 relative z-10"
       >
         <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center gap-8">
           {/* Image avec style gamer */}
@@ -100,7 +186,7 @@ export const About: React.FC = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid md:grid-cols-2 gap-6"
+        className="grid md:grid-cols-2 gap-6 relative z-10"
       >
         {/* Contact Information */}
         <motion.div variants={itemVariants}>

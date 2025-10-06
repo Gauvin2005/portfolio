@@ -115,14 +115,139 @@ export const Experience: React.FC = () => {
   }
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 relative">
+      {/* Animated Background Elements - Tech/Gaming Style */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Hexagonal shapes */}
+        <motion.div
+          className="absolute top-16 right-16 w-14 h-14 bg-gradient-to-r from-emerald-400/20 to-teal-400/20"
+          style={{
+            clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
+          }}
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 1.3, 1],
+            y: [0, -20, 0]
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute top-1/3 left-16 w-10 h-10 bg-gradient-to-r from-rose-400/25 to-pink-400/25"
+          style={{
+            clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
+          }}
+          animate={{
+            rotate: [360, 0],
+            x: [0, 25, 0],
+            y: [0, -15, 0]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        
+        {/* Diamond shapes */}
+        <motion.div
+          className="absolute bottom-40 right-1/4 w-12 h-12 bg-gradient-to-r from-indigo-400/30 to-blue-400/30 rotate-45"
+          animate={{
+            rotate: [45, 405, 45],
+            scale: [1, 0.7, 1],
+            x: [0, -20, 0]
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 left-1/3 w-8 h-8 bg-gradient-to-r from-yellow-400/25 to-amber-400/25 rotate-45"
+          animate={{
+            rotate: [45, 225, 45],
+            scale: [1, 1.4, 1],
+            y: [0, -30, 0]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5
+          }}
+        />
+        
+        {/* Binary code effect */}
+        <motion.div
+          className="absolute top-1/2 left-0 w-40 h-0.5 bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent"
+          animate={{
+            x: [-200, 200],
+            opacity: [0, 1, 0]
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        <motion.div
+          className="absolute top-2/3 right-0 w-32 h-0.5 bg-gradient-to-l from-transparent via-rose-400/60 to-transparent"
+          animate={{
+            x: [200, -200],
+            opacity: [0, 1, 0]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "linear",
+            delay: 2.5
+          }}
+        />
+        
+        {/* Floating dots */}
+        <motion.div
+          className="absolute top-1/4 left-1/2 w-2 h-2 bg-teal-400/40 rounded-full"
+          animate={{
+            y: [0, -40, 0],
+            x: [0, 20, 0],
+            scale: [1, 0.5, 1]
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.5
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/3 right-1/2 w-3 h-3 bg-indigo-400/35 rounded-full"
+          animate={{
+            y: [0, 30, 0],
+            x: [0, -25, 0],
+            scale: [1, 1.5, 1]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3
+          }}
+        />
+      </div>
+
       {/* Header */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="text-center space-y-6"
+        className="text-center space-y-6 relative z-10"
       >
         <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold">
           Expériences Professionnelles
@@ -141,7 +266,7 @@ export const Experience: React.FC = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="space-y-8"
+        className="space-y-8 relative z-10"
       >
         {experiences.map((exp) => (
           <motion.div key={exp.id} variants={itemVariants}>
