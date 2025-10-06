@@ -59,10 +59,10 @@ export const Projects: React.FC = () => {
     },
     {
       id: 'formation-2',
-      title: 'Application PHP',
-      description: 'Application web dynamique avec gestion de base de données MySQL et interface d\'administration.',
-      technologies: ['PHP', 'MySQL', 'JavaScript'],
-      images: ['https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop']
+      title: 'Logiciel de Création de Niveaux de Casse-Brique',
+      description: 'Application de création de niveaux avec interface drag & drop pour placer des formes géométriques (carré, rond, rectangle, triangle) dans une zone de dessin. Les niveaux sont sauvegardés en base de données H2 via MariaDB.',
+      technologies: ['Java', 'Lombok', 'Maven', 'Spring Boot', 'React', 'TailwindCSS', 'Docker', 'MariaDB', 'H2'],
+      images: ['/filRouge2.png']
     }
   ]
 
