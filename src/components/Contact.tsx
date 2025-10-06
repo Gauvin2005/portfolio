@@ -135,7 +135,7 @@ export const Contact: React.FC = () => {
                   <CalModalCustom 
                     triggerText="Planifier un Appel (30 min)"
                     triggerVariant="outline"
-                    triggerClassName="w-full h-16 text-lg font-semibold border-2 border-primary/50 bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary-foreground rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    triggerClassName="w-full h-16 text-lg font-semibold border-2 border-primary/50 bg-primary/10 hover:bg-primary/20 text-primary hover:text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
                     aria-label="Planifier un appel de 30 minutes"
                   />
                 </motion.div>
