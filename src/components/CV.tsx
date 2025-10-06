@@ -1,93 +1,34 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { DownloadIcon, UploadIcon, PrintIcon } from './CustomIcon'
+import { DownloadIcon, PrintIcon } from './CustomIcon'
 import { motion } from 'framer-motion'
 import { toast } from 'sonner'
 import cvPdf from '@/assets/images/Gavin_Rottet_CV.pdf'
 
 export const CV: React.FC = () => {
-  const [cvFile, setCvFile] = useState<File | null>(null)
-  const [cvPreview, setCvPreview] = useState<string | null>(cvPdf)
   const [showCvInfo, setShowCvInfo] = useState(false)
-  const fileInputRef = useRef<HTMLInputElement>(null)
-
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]
-    if (file && file.type === 'application/pdf') {
-      setCvFile(file)
-      
-      // Create preview URL
-      const url = URL.createObjectURL(file)
-      setCvPreview(url)
-      
-      toast.success('CV mis à jour avec succès!')
-    } else {
-      toast.error('Veuillez sélectionner un fichier PDF valide.')
-    }
-  }
 
   const handleDownload = () => {
-    if (cvFile) {
-      const url = URL.createObjectURL(cvFile)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = cvFile.name
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      URL.revokeObjectURL(url)
-    } else {
-      // Download default CV only if it exists
-      const a = document.createElement('a')
-      a.href = cvPdf
-      a.download = 'Gavin_Rottet_CV.pdf'
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-    }
+    const a = document.createElement('a')
+    a.href = cvPdf
+    a.download = 'Gavin_Rottet_CV.pdf'
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
   }
 
   const handlePrint = () => {
     try {
-      if (cvPreview) {
-        // Create a new window for printing
-        const printWindow = window.open(cvPreview, '_blank')
-        if (printWindow) {
-          printWindow.onload = () => {
-            printWindow.print()
-          }
-        } else {
-          // Fallback: try to print the iframe content
-          const iframe = document.createElement('iframe')
-          iframe.style.display = 'none'
-          iframe.src = cvPreview
-          document.body.appendChild(iframe)
-          
-          iframe.onload = () => {
-            try {
-              iframe.contentWindow?.print()
-            } catch (error) {
-              console.error('Print error:', error)
-              toast.error('Impossible d\'imprimer directement. Le fichier PDF s\'ouvrira dans un nouvel onglet.')
-              window.open(cvPreview, '_blank')
-            }
-            setTimeout(() => {
-              document.body.removeChild(iframe)
-            }, 1000)
-          }
-        }
-      } else {
-        // Print default CV
-        window.open(cvPdf, '_blank')
-      }
+      // Print default CV
+      window.open(cvPdf, '_blank')
       toast.success('Impression lancée!')
     } catch (error) {
       console.error('Print error:', error)
       toast.error('Erreur lors de l\'impression. Le fichier PDF s\'ouvrira dans un nouvel onglet.')
-      window.open(cvPreview || cvPdf, '_blank')
+      window.open(cvPdf, '_blank')
     }
   }
 
@@ -294,15 +235,6 @@ export const CV: React.FC = () => {
             <CardContent className="p-6">
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
-                  onClick={() => fileInputRef.current?.click()}
-                  variant="outline"
-                  className="flex items-center space-x-2"
-                >
-                  <UploadIcon size={20} />
-                  <span>Importer/Mettre à jour mon CV</span>
-                </Button>
-                
-                <Button
                   onClick={handleDownload}
                   className="flex items-center space-x-2 neon-glow"
                 >
@@ -319,14 +251,6 @@ export const CV: React.FC = () => {
                   <span>Imprimer mon CV</span>
                 </Button>
               </div>
-              
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept=".pdf"
-                onChange={handleFileUpload}
-                className="hidden"
-              />
             </CardContent>
           </Card>
         </motion.div>
@@ -340,25 +264,11 @@ export const CV: React.FC = () => {
               </h3>
               
               <div className="relative">
-                {cvPreview ? (
-                  <iframe
-                    src={cvPreview}
-                    className="w-full h-[600px] border border-border rounded-lg"
-                    title="CV Preview"
-                  />
-                ) : (
-                  <div className="w-full h-[600px] border border-border rounded-lg flex items-center justify-center bg-muted/20">
-                    <div className="text-center space-y-4">
-                      <div className="text-6xl text-muted-foreground">📄</div>
-                      <p className="text-muted-foreground">
-                        Aucun CV personnalisé chargé
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        Le CV par défaut sera affiché lors du téléchargement
-                      </p>
-                    </div>
-                  </div>
-                )}
+                <iframe
+                  src={cvPdf}
+                  className="w-full h-[600px] border border-border rounded-lg"
+                  title="CV Preview"
+                />
               </div>
             </CardContent>
           </Card>
@@ -393,7 +303,7 @@ export const CV: React.FC = () => {
                   <div>
                     <h4 className="font-semibold text-accent mb-2">Dernière mise à jour</h4>
                     <p className="text-sm text-muted-foreground">
-                      {cvFile ? new Date(cvFile.lastModified).toLocaleDateString() : 'CV par défaut'}
+                      CV par défaut
                     </p>
                   </div>
                   
@@ -405,7 +315,7 @@ export const CV: React.FC = () => {
                   <div>
                     <h4 className="font-semibold text-accent mb-2">Taille du fichier</h4>
                     <p className="text-sm text-muted-foreground">
-                      {cvFile ? `${(cvFile.size / 1024 / 1024).toFixed(2)} MB` : 'Variable'}
+                      Variable
                     </p>
                   </div>
                 </div>
