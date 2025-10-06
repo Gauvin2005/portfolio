@@ -91,7 +91,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 gap-6"
+            className="grid md:grid-cols-2 gap-6 h-[500px]"
           >
             {/* Project Images */}
             <div className="space-y-4">
@@ -126,14 +126,14 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
             </div>
 
             {/* Project Details */}
-            <div className="space-y-6">
-              <div>
+            <div className="space-y-6 flex flex-col h-full">
+              <div className="flex-grow">
                 <h4 className="text-xl font-bold text-primary mb-3">{currentProject.title}</h4>
                 <p className="text-muted-foreground leading-relaxed">{currentProject.description}</p>
               </div>
 
               {/* Technologies */}
-              <div>
+              <div className="flex-shrink-0">
                 <h5 className="text-lg font-semibold text-accent mb-3">Technologies Utilisées</h5>
                 <div className="flex flex-wrap gap-2">
                   {currentProject.technologies.map((tech, idx) => (
@@ -149,7 +149,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
               </div>
 
               {/* Action Buttons */}
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 mt-auto">
                 {currentProject.githubUrl && (
                   <Button variant="outline" size="sm">
                     Voir le Code
