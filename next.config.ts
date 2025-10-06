@@ -10,9 +10,17 @@ const nextConfig: NextConfig = {
   // Configuration pour les fichiers statiques
   trailingSlash: false,
   assetPrefix: '',
-  // Forcer le service des fichiers statiques
+  // Configuration pour Turbopack (nouvelle syntaxe)
   experimental: {
     staticGenerationRetryCount: 3,
+  },
+  turbopack: {
+    rules: {
+      '*.pdf': {
+        loaders: ['raw-loader'],
+        as: '*.js',
+      },
+    },
   },
   // Configuration pour Vercel
   output: 'standalone',

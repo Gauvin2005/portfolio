@@ -6,6 +6,9 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import intervention112Image from '@/assets/images/intervention112.png'
+import publipostageImage from '@/assets/images/publipostage.png'
+import publipostage2Image from '@/assets/images/publipostage2.png'
 
 export const Experience: React.FC = () => {
   const [expandedExperiences, setExpandedExperiences] = useState<number[]>([])
@@ -26,7 +29,7 @@ export const Experience: React.FC = () => {
       period: '17/02/2025 - 18/08/2025',
       featured: true,
       anchor: 'experience-crm',
-      projectImage: '/intervention112.png',
+      projectImage: intervention112Image.src,
       summary: 'Conception et développement d\'une application web moderne pour la gestion des interventions médicales d\'urgence, remplaçant un ancien système et répondant aux enjeux de traçabilité, sécurité et ergonomie.',
       description: 'Conception et développement d\'une application web moderne pour le remplacement d\'un système obsolète (2008) de suivi des interventions médicales d\'urgence (112), avec l\'objectif "Zéro Papier".',
       role: 'Développeur full-stack avec une grande autonomie, responsable de la conception et de l\'implémentation de bout en bout de la solution. Apprentissage autodidacte et rapide des technologies clés.',
@@ -72,7 +75,7 @@ export const Experience: React.FC = () => {
       period: '02/2024 - 08/2024',
       featured: false,
       anchor: 'experience-abraxas',
-      projectImage: '/publipostage.png',
+      projectImage: publipostageImage.src,
       summary: 'Participation à un projet d\'équipe et acquisition de compétences variées en programmation orientée objet, méthode Agile et automatisation de tâches.',
       description: 'Participation à un projet d\'équipe dans un environnement professionnel suisse.',
       role: 'Stagiaire développeur participant aux projets de l\'équipe.',
@@ -309,7 +312,7 @@ export const Experience: React.FC = () => {
                     <div className="relative">
                       {/* Image pour mobile (visible jusqu'à 475px) */}
                       <Image
-                        src={exp.id === 2 ? '/publipostage.png' : exp.projectImage}
+                        src={exp.id === 2 ? publipostageImage.src : exp.projectImage}
                         alt={`Projet ${exp.title}`}
                         width={400}
                         height={300}
@@ -317,7 +320,7 @@ export const Experience: React.FC = () => {
                       />
                       {/* Image pour desktop (visible à partir de 476px) */}
                       <Image
-                        src={exp.id === 2 ? '/publipostage2.png' : exp.projectImage}
+                        src={exp.id === 2 ? publipostage2Image.src : exp.projectImage}
                         alt={`Projet ${exp.title}`}
                         width={400}
                         height={300}

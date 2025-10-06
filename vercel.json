@@ -52,6 +52,12 @@
       "destination": "/$1",
       "permanent": true
     }
+  ],
+  "routes": [
+    {
+      "src": "/(.*\\.(png|jpg|jpeg|gif|svg|pdf|ico))",
+      "dest": "/$1"
+    }
   ]
 }
 

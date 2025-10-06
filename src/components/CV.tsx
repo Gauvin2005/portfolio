@@ -6,10 +6,11 @@ import { Button } from '@/components/ui/button'
 import { DownloadIcon, UploadIcon, PrintIcon } from './CustomIcon'
 import { motion } from 'framer-motion'
 import { toast } from 'sonner'
+import cvPdf from '@/assets/images/Gavin_Rottet_CV.pdf'
 
 export const CV: React.FC = () => {
   const [cvFile, setCvFile] = useState<File | null>(null)
-  const [cvPreview, setCvPreview] = useState<string | null>('/Gavin_Rottet_CV.pdf')
+  const [cvPreview, setCvPreview] = useState<string | null>(cvPdf)
   const [showCvInfo, setShowCvInfo] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -41,7 +42,7 @@ export const CV: React.FC = () => {
     } else {
       // Download default CV only if it exists
       const a = document.createElement('a')
-      a.href = '/Gavin_Rottet_CV.pdf'
+      a.href = cvPdf
       a.download = 'Gavin_Rottet_CV.pdf'
       document.body.appendChild(a)
       a.click()
@@ -80,13 +81,13 @@ export const CV: React.FC = () => {
         }
       } else {
         // Print default CV
-        window.open('/Gavin_Rottet_CV.pdf', '_blank')
+        window.open(cvPdf, '_blank')
       }
       toast.success('Impression lancée!')
     } catch (error) {
       console.error('Print error:', error)
       toast.error('Erreur lors de l\'impression. Le fichier PDF s\'ouvrira dans un nouvel onglet.')
-      window.open(cvPreview || '/Gavin_Rottet_CV.pdf', '_blank')
+      window.open(cvPreview || cvPdf, '_blank')
     }
   }
 
