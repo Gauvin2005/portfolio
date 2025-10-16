@@ -261,6 +261,69 @@ export const Experience: React.FC = () => {
         </motion.p>
       </motion.div>
 
+      {/* Formations Melvyn Malherbe */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="relative z-10"
+      >
+        <Card className="glass-effect border-2 border-primary/30 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5">
+          <CardContent className="p-8">
+            <div className="text-center space-y-6">
+              <motion.div variants={itemVariants}>
+                <h3 className="text-2xl font-bold text-primary mb-2">Formations Complétées</h3>
+                <p className="text-lg text-muted-foreground">
+                  J&apos;ai suivi à 100% les formations créées par{' '}
+                  <a 
+                    href="https://www.youtube.com/@melvynxdev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-accent hover:text-accent/80 transition-colors underline decoration-accent/50 hover:decoration-accent"
+                  >
+                    Melvyn Malherbe
+                  </a>
+                </p>
+              </motion.div>
+              
+              <motion.div variants={itemVariants} className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  { name: 'NextFullStack', description: 'Formation complète Next.js' },
+                  { name: 'NextTailwind', description: 'Maîtrise de Tailwind CSS' },
+                  { name: 'AiBlueprint.dev', description: 'Développement avec IA' },
+                  { name: 'NOW.TS', description: 'TypeScript moderne' },
+                  { name: 'NOW.TS PRO', description: 'TypeScript avancé' }
+                ].map((formation) => (
+                  <motion.div
+                    key={formation.name}
+                    variants={itemVariants}
+                    className="bg-background/50 rounded-lg p-4 border border-primary/20 hover:border-primary/40 transition-colors"
+                  >
+                    <h4 className="font-semibold text-primary mb-1">{formation.name}</h4>
+                    <p className="text-sm text-muted-foreground">{formation.description}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
+              
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://codeline.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                  <span>Découvrir les formations</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </motion.div>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+
       {/* Experiences */}
       <motion.div
         variants={containerVariants}
