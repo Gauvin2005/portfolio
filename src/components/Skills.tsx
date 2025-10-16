@@ -20,9 +20,15 @@ export const Skills: React.FC = () => {
     'Flutter': 'https://docs.flutter.dev',
     'React Native': 'https://reactnative.dev/docs/getting-started',
     'MySQL': 'https://dev.mysql.com/doc',
+    'MariaDB': 'https://mariadb.org/documentation/',
+    'MongoDB': 'https://docs.mongodb.com',
+    'Mongoose': 'https://mongoosejs.com/docs',
+    'MongoSH': 'https://docs.mongodb.com/mongodb-shell',
+    'noSQL': 'https://www.mongodb.com/nosql-explained',
     'Dotnet': 'https://learn.microsoft.com/en-us/dotnet',
     'C#': 'https://learn.microsoft.com/en-us/dotnet/csharp',
     'Python': 'https://docs.python.org/3',
+    'MicroPython': 'https://docs.micropython.org',
     'Java': 'https://docs.oracle.com/en/java',
     'SQL': 'https://www.w3schools.com/sql',
     'PHP': 'https://www.php.net/docs.php',
@@ -37,20 +43,32 @@ export const Skills: React.FC = () => {
     'Runners': 'https://docs.gitlab.com/ee/ci/runners',
     // Méthodologies et concepts
     'POO': 'https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet',
-    'Méthode Agile': 'https://fr.wikipedia.org/wiki/M%C3%A9thode_agile',
-    'Jira': 'https://www.atlassian.com/fr/software/jira',
-    'Confluence': 'https://www.atlassian.com/fr/software/confluence',
+    'UML': 'https://fr.wikipedia.org/wiki/UML',
+    'Diagramme de cas d\'utilisation': 'https://fr.wikipedia.org/wiki/Diagramme_de_cas_d%27utilisation',
+    'Diagramme d\'activités': 'https://fr.wikipedia.org/wiki/Diagramme_d%27activit%C3%A9',
+    'Diagramme de classes': 'https://fr.wikipedia.org/wiki/Diagramme_de_classes',
+    'Diagramme de séquences': 'https://fr.wikipedia.org/wiki/Diagramme_de_s%C3%A9quence',
     // Outils de communication
     'Slack': 'https://slack.com/intl/fr-fr/help',
     'Teams': 'https://support.microsoft.com/fr-fr/teams',
+    'Discord': 'https://support.discord.com/hc/fr',
     // Suite Microsoft Office
     'PowerPoint': 'https://support.microsoft.com/fr-fr/powerpoint',
     'Word': 'https://support.microsoft.com/fr-fr/word',
     // Outils de développement
+    'ESLint': 'https://eslint.org/docs',
+    'Prettier': 'https://prettier.io/docs',
     'Cursor': 'https://cursor.sh/docs',
     'Claude': 'https://claude.ai',
     'ChatGPT': 'https://chat.openai.com',
+    'Perplexity': 'https://www.perplexity.ai',
+    'Mistral': 'https://mistral.ai',
+    'notebookLM': 'https://notebooklm.google.com',
     // Outils de documentation
+    'Méthode Agile': 'https://fr.wikipedia.org/wiki/M%C3%A9thode_agile',
+    'Jira': 'https://www.atlassian.com/fr/software/jira',
+    'Confluence': 'https://www.atlassian.com/fr/software/confluence',
+    'Notion': 'https://www.notion.so/help',
     'Obsidian': 'https://help.obsidian.md',
     'Excalidraw': 'https://excalidraw.com/docs',
     // Outils métier
@@ -66,17 +84,19 @@ export const Skills: React.FC = () => {
     },
     backend: {
       'Runtime JS': ['Next.js', 'Node.js'],
-      'Langages': ['Python', 'Java', 'C#', 'Dotnet', 'PHP'],
-      'Bases de données': ['MySQL', 'SQL']
+      'Langages': ['Python', 'MicroPython', 'Java', 'C#', 'Dotnet', 'PHP'],
+      'Bases de données': ['MySQL', 'MariaDB', 'MongoDB', 'Mongoose', 'MongoSH', 'noSQL', 'SQL']
     },
     tools: {
       'Git & CI/CD': ['Git (GitHub, GitLab, CI/CD, Actions, Pipelines, Runners)'],
       'DevOps': ['Docker', 'Ubuntu'],
-      'Concepts': ['POO', 'Méthode Agile (Jira, Confluence)'],
-      'IA & Dev': ['Cursor', 'Claude', 'ChatGPT'],
-      'Documentation': ['Obsidian', 'Excalidraw'],
+      'Concepts': ['POO'],
+      'UML': ['Diagramme de cas d\'utilisation', 'Diagramme d\'activités', 'Diagramme de classes', 'Diagramme de séquences'],
+      'IA & Dev': ['Cursor', 'Claude', 'ChatGPT', 'Perplexity', 'Mistral', 'notebookLM'],
+      'Outils Dev': ['ESLint', 'Prettier'],
+      'Documentation': ['Méthode Agile', 'Jira', 'Confluence', 'Notion', 'Obsidian', 'Excalidraw'],
       'Microsoft': ['Teams', 'PowerPoint', 'Word'],
-      'Communication': ['Slack'],
+      'Communication': ['Slack', 'Discord'],
       'Métier': ['Autotask']
     }
   }
