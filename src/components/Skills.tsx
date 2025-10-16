@@ -10,6 +10,7 @@ export const Skills: React.FC = () => {
   // Mapping des compétences vers leurs documentations officielles
   const skillDocumentation: Record<string, string> = {
     'Next.js': 'https://nextjs.org/docs',
+    'Node.js': 'https://nodejs.org/en/docs',
     'React': 'https://react.dev/learn',
     'HTML': 'https://developer.mozilla.org/fr/docs/Web/HTML',
     'CSS': 'https://developer.mozilla.org/fr/docs/Web/CSS',
@@ -53,19 +54,26 @@ export const Skills: React.FC = () => {
   }
 
   const technicalSkills = {
-    frontend: [
-      'Next.js', 'React', 'HTML', 'CSS', 'JavaScript (JS)', 
-      'Tailwind CSS', 'shadcn/ui', 'Flutter'
-    ],
-    backend: [
-      'Next.js', 'MySQL', 'Dotnet', 'C#', 
-      'Python', 'Java', 'SQL', 'PHP'
-    ],
-    tools: [
-      'Méthode Agile (Jira, Confluence)', 'POO', 'Autotask', 
-      'Slack', 'Teams', 'PowerPoint', 'Word', 'Docker',
-      'Cursor', 'Claude', 'ChatGPT', 'Ubuntu', 'Git (GitHub, GitLab, CI/CD, Actions, Pipelines, Runners)'
-    ]
+    frontend: {
+      'Bases Web': ['HTML', 'CSS', 'JavaScript (JS)'],
+      'Frameworks JS': ['React', 'Next.js'],
+      'UI/UX': ['Tailwind CSS', 'shadcn/ui'],
+      'Mobile': ['Flutter']
+    },
+    backend: {
+      'Runtime JS': ['Next.js', 'Node.js'],
+      'Langages': ['Python', 'Java', 'C#', 'Dotnet', 'PHP'],
+      'Bases de données': ['MySQL', 'SQL']
+    },
+    tools: {
+      'Git & CI/CD': ['Git (GitHub, GitLab, CI/CD, Actions, Pipelines, Runners)'],
+      'DevOps': ['Docker', 'Ubuntu'],
+      'Concepts': ['POO', 'Méthode Agile (Jira, Confluence)'],
+      'IA & Dev': ['Cursor', 'Claude', 'ChatGPT'],
+      'Microsoft': ['Teams', 'PowerPoint', 'Word'],
+      'Communication': ['Slack'],
+      'Métier': ['Autotask']
+    }
   }
 
   const softSkills = [
@@ -115,47 +123,59 @@ export const Skills: React.FC = () => {
     visible: { opacity: 1, y: 0 }
   }
 
-  const SkillCategory: React.FC<{ title: string; skills: string[]; color: string }> = ({ 
+  const SkillCategory: React.FC<{ title: string; skillGroups: Record<string, string[]>; color: string }> = ({ 
     title, 
-    skills, 
+    skillGroups, 
     color 
   }) => (
     <motion.div variants={itemVariants}>
       <Card className="glass-effect h-full">
         <CardContent className="p-6">
           <h3 className={`text-xl font-semibold mb-4 ${color}`}>{title}</h3>
-          <div className="flex flex-wrap gap-2">
-            {skills.map((skillString, index) => {
-              const extractedSkills = extractSkills(skillString)
-              return extractedSkills.map((skill, skillIndex) => {
-                const documentationUrl = getDocumentationUrl(skill)
-                const badgeKey = `${index}-${skillIndex}`
-                
-                if (documentationUrl) {
-                  return (
-                    <Link key={badgeKey} href={documentationUrl} target="_blank" rel="noopener noreferrer">
-                      <Badge 
-                        variant="secondary"
-                        className="bg-primary/30 text-primary hover:bg-primary/40 transition-colors border border-primary/50 cursor-pointer hover:scale-105 transform"
-                        title={`Documentation ${skill}`}
-                      >
-                        {skill}
-                      </Badge>
-                    </Link>
-                  )
-                }
-                
-                return (
-                  <Badge 
-                    key={badgeKey}
-                    variant="secondary"
-                    className="bg-primary/30 text-primary hover:bg-primary/40 transition-colors border border-primary/50"
-                  >
-                    {skill}
-                  </Badge>
-                )
-              })
-            })}
+          <div className="space-y-4">
+            {Object.entries(skillGroups).map(([groupName, skills], groupIndex) => (
+              <div key={groupIndex}>
+                <h4 className="text-sm font-medium text-muted-foreground mb-2 uppercase tracking-wide">
+                  {groupName}
+                </h4>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {skills.map((skillString, index) => {
+                    const extractedSkills = extractSkills(skillString)
+                    return extractedSkills.map((skill, skillIndex) => {
+                      const documentationUrl = getDocumentationUrl(skill)
+                      const badgeKey = `${groupIndex}-${index}-${skillIndex}`
+                      
+                      if (documentationUrl) {
+                        return (
+                          <Link key={badgeKey} href={documentationUrl} target="_blank" rel="noopener noreferrer">
+                            <Badge 
+                              variant="secondary"
+                              className="bg-primary/30 text-primary hover:bg-primary/40 transition-colors border border-primary/50 cursor-pointer hover:scale-105 transform"
+                              title={`Documentation ${skill}`}
+                            >
+                              {skill}
+                            </Badge>
+                          </Link>
+                        )
+                      }
+                      
+                      return (
+                        <Badge 
+                          key={badgeKey}
+                          variant="secondary"
+                          className="bg-primary/30 text-primary hover:bg-primary/40 transition-colors border border-primary/50"
+                        >
+                          {skill}
+                        </Badge>
+                      )
+                    })
+                  })}
+                </div>
+                {groupIndex < Object.keys(skillGroups).length - 1 && (
+                  <div className="border-b border-border/50 mb-3"></div>
+                )}
+              </div>
+            ))}
           </div>
         </CardContent>
       </Card>
@@ -198,17 +218,17 @@ export const Skills: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-6">
           <SkillCategory 
             title="Frontend" 
-            skills={technicalSkills.frontend} 
+            skillGroups={technicalSkills.frontend} 
             color="text-primary" 
           />
           <SkillCategory 
             title="Backend" 
-            skills={technicalSkills.backend} 
+            skillGroups={technicalSkills.backend} 
             color="text-accent" 
           />
           <SkillCategory 
             title="Outils & Méthodologies" 
-            skills={technicalSkills.tools} 
+            skillGroups={technicalSkills.tools} 
             color="text-primary" 
           />
         </div>
