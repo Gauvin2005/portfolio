@@ -218,7 +218,7 @@ export const Contact: React.FC = () => {
                   <Button 
                     size="lg" 
                     variant="outline"
-                    className="px-8 py-4 text-lg font-semibold rounded-2xl border-2 hover:bg-primary/10"
+                    className="px-8 py-4 text-lg font-semibold rounded-2xl border-2 hover:bg-primary/10 gradient-shift"
                     onClick={scrollToProjects}
                     aria-label="Voir les projets réalisés"
                   >

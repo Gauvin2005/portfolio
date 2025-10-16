@@ -287,6 +287,7 @@ export const CV: React.FC = () => {
                   onClick={() => setShowCvInfo(!showCvInfo)}
                   variant="outline"
                   size="sm"
+                  className="expand-button"
                 >
                   {showCvInfo ? 'Masquer' : 'Afficher'} les détails
                 </Button>

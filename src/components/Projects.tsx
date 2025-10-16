@@ -140,7 +140,7 @@ export const Projects: React.FC = () => {
           <Button
             onClick={() => setShowAllProjects(!showAllProjects)}
             variant="outline"
-            className="neon-glow"
+            className="neon-glow gradient-shift halo-pulse chevron-down"
           >
             {showAllProjects ? 'Masquer tous les projets' : 'Voir tous mes projets'}
           </Button>
@@ -226,7 +226,7 @@ export const Projects: React.FC = () => {
                   <Button
                     onClick={() => setShowFormationProjects(!showFormationProjects)}
                     variant="outline"
-                    className="w-full sm:w-auto"
+                    className="w-full sm:w-auto expand-button"
                   >
                     {showFormationProjects ? 'Masquer les projets' : 'Voir mes projets'}
                   </Button>
@@ -263,7 +263,7 @@ export const Projects: React.FC = () => {
                   <Button
                     onClick={() => setShowGroupeProjects(!showGroupeProjects)}
                     variant="outline"
-                    className="w-full sm:w-auto"
+                    className="w-full sm:w-auto expand-button"
                   >
                     {showGroupeProjects ? 'Masquer les projets' : 'Voir mes projets'}
                   </Button>

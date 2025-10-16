@@ -181,12 +181,12 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
               {/* Action Buttons */}
               <div className="flex space-x-4 mt-auto">
                 {currentProject.githubUrl && (
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" className="gradient-shift">
                     Voir le Code
                   </Button>
                 )}
                 {currentProject.demoUrl && (
-                  <Button size="sm" className="neon-glow">
+                  <Button size="sm" className="neon-glow gradient-shift">
                     Voir la Démo
                   </Button>
                 )}

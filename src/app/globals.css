@@ -184,4 +184,126 @@
     from { box-shadow: 0 0 20px oklch(0.6 0.2 160 / 0.3); }
     to { box-shadow: 0 0 30px oklch(0.6 0.2 160 / 0.5), 0 0 40px oklch(0.6 0.2 160 / 0.3); }
   }
+
+  /* Animations pour les boutons de déroulement */
+  .gradient-shift {
+    background: linear-gradient(135deg, 
+      oklch(0.6 0.2 160) 0%, 
+      oklch(0.5 0.2 200) 25%, 
+      oklch(0.7 0.15 120) 50%, 
+      oklch(0.6 0.2 160) 100%);
+    background-size: 200% 200%;
+    transition: all 0.3s ease;
+  }
+
+  .gradient-shift:hover {
+    background-position: 100% 100%;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px oklch(0.6 0.2 160 / 0.3);
+  }
+
+  /* Effet halo pulsé pour le bouton principal */
+  .halo-pulse {
+    position: relative;
+    overflow: visible;
+  }
+
+  .halo-pulse::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(45deg, 
+      oklch(0.6 0.2 160 / 0.4), 
+      oklch(0.5 0.2 200 / 0.4), 
+      oklch(0.7 0.15 120 / 0.4), 
+      oklch(0.6 0.2 160 / 0.4));
+    background-size: 300% 300%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: halo-pulse 3s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .halo-pulse:hover::before {
+    opacity: 1;
+  }
+
+  @keyframes halo-pulse {
+    0%, 100% { 
+      background-position: 0% 50%;
+      transform: scale(1);
+    }
+    50% { 
+      background-position: 100% 50%;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Chevrons animés */
+  .chevron-down {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .chevron-down::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid currentColor;
+    transition: all 0.3s ease;
+    animation: chevron-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes chevron-bounce {
+    0%, 100% { 
+      transform: translateY(0);
+      opacity: 0.7;
+    }
+    50% { 
+      transform: translateY(4px);
+      opacity: 1;
+    }
+  }
+
+  /* Animation pour les boutons de déroulement secondaires */
+  .expand-button {
+    position: relative;
+    transition: all 0.3s ease;
+    padding-right: 2rem !important;
+  }
+
+  .expand-button::after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid currentColor;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+
+  .expand-button:hover::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .expand-button:hover {
+    background: linear-gradient(135deg, 
+      oklch(0.15 0.01 240) 0%, 
+      oklch(0.2 0.01 240) 100%);
+    border-color: oklch(0.6 0.2 160 / 0.5);
+    box-shadow: 0 4px 15px oklch(0.6 0.2 160 / 0.2);
+  }
 }
