@@ -298,7 +298,7 @@ export const Experience: React.FC = () => {
                       <Button
                         onClick={() => toggleExperience(exp.id)}
                         variant="outline"
-                        className="w-full sm:w-auto expand-button"
+                        className="w-full sm:w-auto expand-button bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 border-2 border-primary/60 shadow-lg hover:shadow-xl hover:from-primary/30 hover:via-accent/25 hover:to-primary/30 hover:border-primary/80 hover:scale-105 transition-all duration-300"
                       >
                         {expandedExperiences.includes(exp.id) ? 'Masquer les détails' : 'Voir mon projet de stage'}
                       </Button>

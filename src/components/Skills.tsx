@@ -12,13 +12,13 @@ export const Skills: React.FC = () => {
       'Tailwind CSS', 'shadcn/ui', 'Flutter'
     ],
     backend: [
-      'MySQL', 'Dotnet', 'C#', 'PHP', 
-      'Python', 'Java', 'SQL', 'Java'
+      'Next.js', 'MySQL', 'Dotnet', 'C#', 
+      'Python', 'Java', 'SQL', 'PHP'
     ],
     tools: [
       'Méthode Agile (Jira, Confluence)', 'POO', 'Autotask', 
       'Slack', 'Teams', 'PowerPoint', 'Word', 'Docker', 'CI/CD',
-      'Cursor', 'Ubuntu', 'Git (GitHub, GitLab, CI/CD, Actions, Pipelines, Runners)'
+      'Cursor', 'Claude', 'Ubuntu', 'Git (GitHub, GitLab, CI/CD, Actions, Pipelines, Runners)'
     ]
   }
 
