@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { DownloadIcon, PrintIcon } from './CustomIcon'
@@ -9,7 +9,6 @@ import { toast } from 'sonner'
 import { getVercelAssetUrl } from '@/lib/vercelAssets'
 
 export const CV: React.FC = () => {
-  const [showCvInfo, setShowCvInfo] = useState(false)
 
   const handleDownload = () => {
     const a = document.createElement('a')
@@ -275,75 +274,6 @@ export const CV: React.FC = () => {
           </Card>
         </motion.div>
 
-        {/* CV Information */}
-        <motion.div variants={itemVariants}>
-          <Card className="glass-effect">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold text-primary">
-                  Informations sur le CV
-                </h3>
-                <Button
-                  onClick={() => setShowCvInfo(!showCvInfo)}
-                  variant="outline"
-                  size="sm"
-                  className="expand-button"
-                >
-                  {showCvInfo ? 'Masquer' : 'Afficher'} les détails
-                </Button>
-              </div>
-              
-              {showCvInfo && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="grid md:grid-cols-2 gap-6"
-                >
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-accent mb-2">Dernière mise à jour</h4>
-                    <p className="text-sm text-muted-foreground">
-                      CV par défaut
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold text-accent mb-2">Format</h4>
-                    <p className="text-sm text-muted-foreground">PDF (Portable Document Format)</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold text-accent mb-2">Taille du fichier</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Variable
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-accent mb-2">Contenu inclus</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Informations personnelles</li>
-                      <li>• Expériences professionnelles</li>
-                      <li>• Compétences techniques</li>
-                      <li>• Projets réalisés</li>
-                      <li>• Formation et certifications</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold text-accent mb-2">Langues disponibles</h4>
-                    <p className="text-sm text-muted-foreground">Français (principal)</p>
-                  </div>
-                </div>
-                </motion.div>
-              )}
-            </CardContent>
-          </Card>
-        </motion.div>
       </motion.div>
     </div>
   )
