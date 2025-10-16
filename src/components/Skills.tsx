@@ -18,6 +18,7 @@ export const Skills: React.FC = () => {
     'Tailwind CSS': 'https://tailwindcss.com/docs',
     'shadcn/ui': 'https://ui.shadcn.com/docs',
     'Flutter': 'https://docs.flutter.dev',
+    'React Native': 'https://reactnative.dev/docs/getting-started',
     'MySQL': 'https://dev.mysql.com/doc',
     'Dotnet': 'https://learn.microsoft.com/en-us/dotnet',
     'C#': 'https://learn.microsoft.com/en-us/dotnet/csharp',
@@ -49,6 +50,9 @@ export const Skills: React.FC = () => {
     'Cursor': 'https://cursor.sh/docs',
     'Claude': 'https://claude.ai',
     'ChatGPT': 'https://chat.openai.com',
+    // Outils de documentation
+    'Obsidian': 'https://help.obsidian.md',
+    'Excalidraw': 'https://excalidraw.com/docs',
     // Outils métier
     'Autotask': 'https://www.autotask.com/help'
   }
@@ -58,7 +62,7 @@ export const Skills: React.FC = () => {
       'Bases Web': ['HTML', 'CSS', 'JavaScript (JS)'],
       'Frameworks JS': ['React', 'Next.js'],
       'UI/UX': ['Tailwind CSS', 'shadcn/ui'],
-      'Mobile': ['Flutter']
+      'Mobile': ['Flutter', 'React Native']
     },
     backend: {
       'Runtime JS': ['Next.js', 'Node.js'],
@@ -70,6 +74,7 @@ export const Skills: React.FC = () => {
       'DevOps': ['Docker', 'Ubuntu'],
       'Concepts': ['POO', 'Méthode Agile (Jira, Confluence)'],
       'IA & Dev': ['Cursor', 'Claude', 'ChatGPT'],
+      'Documentation': ['Obsidian', 'Excalidraw'],
       'Microsoft': ['Teams', 'PowerPoint', 'Word'],
       'Communication': ['Slack'],
       'Métier': ['Autotask']
