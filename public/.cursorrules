@@ -1,0 +1,10 @@
+# Règles pour messages de commit générés par Cursor
+À partir de maintenant, générer les messages de commit en respectant exactement le format suivant :
+<préfixe>(<fichier_modifié>): <description concise>
+
+Règles :
+- Utiliser les préfixes standard : feat, fix, refactor, chore, docs, style, test.
+- Mettre entre parenthèses le ou les fichiers principaux modifiés.
+- Commencer la description par un verbe à l’infinitif.
+- Ne jamais utiliser d’émoticônes.
+- Garder une description courte, claire et factuelle.
