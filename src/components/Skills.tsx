@@ -6,9 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-export const Skills: React.FC = () => {
-  // Mapping des compétences vers leurs documentations officielles
-  const skillDocumentation: Record<string, string> = {
+const skillDocumentation: Record<string, string> = {
     'Next.js': 'https://nextjs.org/docs',
     'Node.js': 'https://nodejs.org/en/docs',
     'React': 'https://react.dev/learn',
@@ -72,9 +70,101 @@ export const Skills: React.FC = () => {
     'Obsidian': 'https://help.obsidian.md',
     'Excalidraw': 'https://excalidraw.com/docs',
     // Outils métier
-    'Autotask': 'https://www.autotask.com/help'
-  }
+  'Autotask': 'https://www.autotask.com/help'
+}
 
+const extractSkills = (skillString: string): string[] => {
+  if (skillDocumentation[skillString]) {
+    return [skillString]
+  }
+  const match = skillString.match(/^(.+?)\s*\((.+)\)$/)
+  if (match) {
+    const [, mainSkill, subSkills] = match
+    const subSkillsList = subSkills.split(',').map(s => s.trim())
+    return [mainSkill, ...subSkillsList]
+  }
+  return [skillString]
+}
+
+const getDocumentationUrl = (skill: string): string | null => {
+  return skillDocumentation[skill] || null
+}
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+}
+
+const SkillCategory: React.FC<{ title: string; skillGroups: Record<string, string[]>; color: string }> = ({
+  title,
+  skillGroups,
+  color
+}) => (
+  <motion.div variants={itemVariants}>
+    <Card className="glass-effect h-full">
+      <CardContent className="p-6">
+        <h3 className={`text-xl font-semibold mb-4 ${color}`}>{title}</h3>
+        <div className="space-y-4">
+          {Object.entries(skillGroups).map(([groupName, skills], groupIndex) => (
+            <div key={groupIndex}>
+              <h4 className="text-sm font-medium text-muted-foreground mb-2 uppercase tracking-wide">
+                {groupName}
+              </h4>
+              <div className="flex flex-wrap gap-2 mb-3">
+                {skills.map((skillString, index) => {
+                  const extractedSkills = extractSkills(skillString)
+                  return extractedSkills.map((skill, skillIndex) => {
+                    const documentationUrl = getDocumentationUrl(skill)
+                    const badgeKey = `${groupIndex}-${index}-${skillIndex}`
+
+                    if (documentationUrl) {
+                      return (
+                        <Link key={badgeKey} href={documentationUrl} target="_blank" rel="noopener noreferrer">
+                          <Badge
+                            variant="secondary"
+                            className="bg-primary/30 text-primary hover:bg-primary/40 transition-colors border border-primary/50 cursor-pointer hover:scale-105 transform"
+                            title={`Documentation ${skill}`}
+                          >
+                            {skill}
+                          </Badge>
+                        </Link>
+                      )
+                    }
+
+                    return (
+                      <Badge
+                        key={badgeKey}
+                        variant="secondary"
+                        className="bg-primary/30 text-primary hover:bg-primary/40 transition-colors border border-primary/50"
+                      >
+                        {skill}
+                      </Badge>
+                    )
+                  })
+                })}
+              </div>
+              {groupIndex < Object.keys(skillGroups).length - 1 && (
+                <div className="border-b border-border/50 mb-3"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  </motion.div>
+)
+
+export const Skills: React.FC = () => {
   const technicalSkills = {
     frontend: {
       'Bases Web': ['HTML', 'CSS', 'JavaScript (JS)'],
@@ -109,103 +199,6 @@ export const Skills: React.FC = () => {
     'Rigoureux',
     "À l'écoute"
   ]
-
-  // Fonction pour extraire les compétences individuelles d'une chaîne complexe
-  const extractSkills = (skillString: string): string[] => {
-    // Si c'est une compétence simple, la retourner telle quelle
-    if (skillDocumentation[skillString]) {
-      return [skillString]
-    }
-    
-    // Pour les compétences complexes comme "Git (GitHub, GitLab, CI/CD, Actions, Pipelines, Runners)"
-    const match = skillString.match(/^(.+?)\s*\((.+)\)$/)
-    if (match) {
-      const [, mainSkill, subSkills] = match
-      const subSkillsList = subSkills.split(',').map(s => s.trim())
-      return [mainSkill, ...subSkillsList]
-    }
-    
-    return [skillString]
-  }
-
-  // Fonction pour obtenir l'URL de documentation d'une compétence
-  const getDocumentationUrl = (skill: string): string | null => {
-    return skillDocumentation[skill] || null
-  }
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  }
-
-  const SkillCategory: React.FC<{ title: string; skillGroups: Record<string, string[]>; color: string }> = ({ 
-    title, 
-    skillGroups, 
-    color 
-  }) => (
-    <motion.div variants={itemVariants}>
-      <Card className="glass-effect h-full">
-        <CardContent className="p-6">
-          <h3 className={`text-xl font-semibold mb-4 ${color}`}>{title}</h3>
-          <div className="space-y-4">
-            {Object.entries(skillGroups).map(([groupName, skills], groupIndex) => (
-              <div key={groupIndex}>
-                <h4 className="text-sm font-medium text-muted-foreground mb-2 uppercase tracking-wide">
-                  {groupName}
-                </h4>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {skills.map((skillString, index) => {
-                    const extractedSkills = extractSkills(skillString)
-                    return extractedSkills.map((skill, skillIndex) => {
-                      const documentationUrl = getDocumentationUrl(skill)
-                      const badgeKey = `${groupIndex}-${index}-${skillIndex}`
-                      
-                      if (documentationUrl) {
-                        return (
-                          <Link key={badgeKey} href={documentationUrl} target="_blank" rel="noopener noreferrer">
-                            <Badge 
-                              variant="secondary"
-                              className="bg-primary/30 text-primary hover:bg-primary/40 transition-colors border border-primary/50 cursor-pointer hover:scale-105 transform"
-                              title={`Documentation ${skill}`}
-                            >
-                              {skill}
-                            </Badge>
-                          </Link>
-                        )
-                      }
-                      
-                      return (
-                        <Badge 
-                          key={badgeKey}
-                          variant="secondary"
-                          className="bg-primary/30 text-primary hover:bg-primary/40 transition-colors border border-primary/50"
-                        >
-                          {skill}
-                        </Badge>
-                      )
-                    })
-                  })}
-                </div>
-                {groupIndex < Object.keys(skillGroups).length - 1 && (
-                  <div className="border-b border-border/50 mb-3"></div>
-                )}
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-    </motion.div>
-  )
 
   return (
     <div className="space-y-12">

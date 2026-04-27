@@ -1,20 +1,19 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import nextConfig from "eslint-config-next";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+// nextConfig[1] is the "next/typescript" entry that registers @typescript-eslint
+const tsPlugin = nextConfig[1].plugins["@typescript-eslint"];
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...nextConfig,
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    plugins: { "@typescript-eslint": tsPlugin },
+    rules: {
+      "@typescript-eslint/no-unused-vars": "error",
+    },
+  },
   {
     rules: {
-      // Traiter les warnings comme des erreurs en production
-      "@typescript-eslint/no-unused-vars": "error",
       "@next/next/no-img-element": "error",
       "no-console": "warn",
       "no-debugger": "error",

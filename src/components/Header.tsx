@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, startTransition } from 'react'
 import { Button } from '@/components/ui/button'
 import { GitHubIcon, LinkedInIcon, MenuIcon, XIcon } from './CustomIcon'
 import { AnimatedUnderline } from './AnimatedUnderline'
@@ -46,7 +46,7 @@ export const Header: React.FC = () => {
   const { theme, setTheme } = useTheme()
 
   useEffect(() => {
-    setIsMounted(true)
+    startTransition(() => setIsMounted(true))
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)

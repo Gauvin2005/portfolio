@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, startTransition } from 'react'
 import { Button } from '@/components/ui/button'
 import { GitHubIcon, LinkedInIcon } from './CustomIcon'
 import { AnimatedUnderline } from './AnimatedUnderline'
@@ -11,7 +11,7 @@ export const Hero: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    setIsMounted(true)
+    startTransition(() => setIsMounted(true))
   }, [])
 
   const scrollToContact = useCallback(() => {
