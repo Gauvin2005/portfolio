@@ -290,7 +290,7 @@ export const Skills: React.FC = () => {
         </motion.div>
       </motion.div>
 
-      {/* Skills Visualization */}
+      {/* Skills progression bars */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -299,91 +299,41 @@ export const Skills: React.FC = () => {
         className="space-y-8"
       >
         <motion.h3 variants={itemVariants} className="text-2xl font-semibold text-center">
-          Domaines préférés
+          Niveaux de maîtrise
         </motion.h3>
-        
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Frontend */}
-          <motion.div variants={itemVariants}>
-            <Card className="glass-effect group hover:border-primary/50 transition-all duration-300">
-              <CardContent className="p-6">
-                <h4 className="text-lg font-semibold text-primary mb-4">Frontend</h4>
-                <div className="space-y-2">
-                  <Link 
-                    href="https://nextjs.org/docs" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm hover:text-primary transition-colors cursor-pointer block"
-                  >
-                    NextJS
-                  </Link>
-                  <Link 
-                    href="https://ui.shadcn.com/docs" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm hover:text-primary transition-colors cursor-pointer block"
-                  >
-                    ShadcnUI
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
 
-          {/* Backend */}
-          <motion.div variants={itemVariants}>
-            <Card className="glass-effect group hover:border-accent/50 transition-all duration-300">
-              <CardContent className="p-6">
-                <h4 className="text-lg font-semibold text-accent mb-4">Backend</h4>
-                <div className="space-y-2">
-                  <Link 
-                    href="https://expressjs.com/en/4x/api.html" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm hover:text-accent transition-colors cursor-pointer block"
-                  >
-                    Express
-                  </Link>
-                  <Link 
-                    href="https://docs.docker.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm hover:text-accent transition-colors cursor-pointer block"
-                  >
-                    Docker
-                  </Link>
+        <motion.div variants={itemVariants} className="max-w-3xl mx-auto">
+          <Card className="glass-effect">
+            <CardContent className="p-8 space-y-5">
+              {[
+                { name: 'Next.js', level: 90, color: 'bg-primary' },
+                { name: 'Tailwind CSS', level: 90, color: 'bg-primary' },
+                { name: 'React', level: 85, color: 'bg-accent' },
+                { name: 'TypeScript', level: 80, color: 'bg-accent' },
+                { name: 'MySQL / Prisma', level: 75, color: 'bg-primary' },
+                { name: 'React Native / Expo', level: 65, color: 'bg-purple-400' },
+                { name: 'Docker', level: 65, color: 'bg-purple-400' },
+                { name: 'C# / .NET', level: 60, color: 'bg-orange-400' },
+              ].map((skill) => (
+                <div key={skill.name} className="space-y-1.5">
+                  <div className="flex justify-between text-sm font-medium">
+                    <span>{skill.name}</span>
+                    <span className="text-muted-foreground">{skill.level}%</span>
+                  </div>
+                  <div className="h-2 rounded-full bg-primary/10 overflow-hidden">
+                    <motion.div
+                      className={`h-full rounded-full ${skill.color}`}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}
+                    />
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* Base de données */}
-          <motion.div variants={itemVariants}>
-            <Card className="glass-effect group hover:border-secondary-foreground/50 transition-all duration-300">
-              <CardContent className="p-6">
-                <h4 className="text-lg font-semibold text-secondary-foreground mb-4">Base de données</h4>
-                <div className="space-y-2">
-                  <Link 
-                    href="https://dev.mysql.com/doc" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm hover:text-secondary-foreground transition-colors cursor-pointer block"
-                  >
-                    MySQL
-                  </Link>
-                  <Link 
-                    href="https://www.prisma.io/docs" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm hover:text-secondary-foreground transition-colors cursor-pointer block"
-                  >
-                    Prisma
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
+              ))}
+            </CardContent>
+          </Card>
+        </motion.div>
       </motion.div>
     </div>
   )
